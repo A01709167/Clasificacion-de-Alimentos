@@ -30,7 +30,7 @@ int main(){
     }
     cout<< "The result is " << addnumbers(array, size) <<endl;
     return 0;
-    cout <<"Change to be seen in the commited changes"
+    cout <<"Change to be seen in the commited changes";
 }
 
 //Se supone que esto debería mostrarse en el git
