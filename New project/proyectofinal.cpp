@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 // Parent class representing the user
 class User {
 private:
