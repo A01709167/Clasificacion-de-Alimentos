@@ -1,41 +1,84 @@
-//This will be a nutrition plan project where I will classify different foods into food types to simplify a balanceed nutrition.
+// Parent class representing the user
+class User {
+private:
+    std::string name;
+    double weight;
+    double height;
+    double calories;
+    std::string state; // "maintenance", "bulk", "deficit"
+    std::array<double, 3> split; // Percentage split for carbs, proteins, fats
 
-//Here i'm writing some extra code to see it reflected on github
-#include <iostream>
-using namespace std;
+public:
+    // Constructor
+    User(const std::string& name, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split);
 
-int addnumbers(int array[], int size){
-    int sum = 0;
-    for (int i=0; i<size; i++){
-        sum += array[i];  
-    }
-    return sum;
-}
+    // Methods
+    void findMaintenance();
+    void findDeficit();
+    void findBulk();
+};
 
-int main(){
-    int size = 3;
-    cout <<"What size do you want the array to be?: " <<endl;
-    cin >> size;
-    while (size<=0){
-        cout << "Size not valid, enter another one: " <<endl;
-        cin >> size;
-    }
-    int array[size];
-    int val = 0;
-    for (int i=0; i < size; i++){
-        cout <<"Enter the value for the array: " <<endl;
-        cin >> val;
-        array[i] = val;
+// Child class representing the maintenance state
+class Maintenance : public User {
+public:
+    // Constructor
+    Maintenance(const std::string& name, double weight, double height, double calories, const std::array<double, 3>& split);
+};
 
-    }
-    cout<< "The result is " << addnumbers(array, size) <<endl;
-    return 0;
-    cout <<"Change to be seen in the commited changes";
-}
+// Child class representing the deficit state
+class Deficit : public User {
+public:
+    // Constructor
+    Deficit(const std::string& name, double weight, double height, double caloriesUnder, const std::array<double, 3>& split);
+};
 
-//Se supone que esto debería mostrarse en el git
-//O no sé, la verdad no muestra nada
+// Child class representing the bulk state
+class Bulk : public User {
+public:
+    // Constructor
+    Bulk(const std::string& name, double weight, double height, double caloriesOver, const std::array<double, 3>& split);
+};
 
-//quiero ver si esto ya se ve reflejado
+// Class representing the meal plan
+class Plan : public User {
+private:
+    int numberOfMeals;
+    int carbs;
+    int proteins;
+    int fats;
+    std::vector<std::string> meals;
 
+public:
+    // Constructor
+    Plan(const std::string& name, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split, int numberOfMeals);
 
+    // Methods
+    void setMeals();
+    int carbs();
+    int proteins();
+    int fats();
+    void seePortions();
+    void equalSplit();
+    void showPlan();
+};
+
+// Class representing an individual meal
+class Meal : public Plan {
+private:
+    std::string name;
+    std::string time;
+    int carbs;
+    int proteins;
+    int fats;
+
+public:
+    // Constructor
+    Meal(const std::string& planName, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split, int numberOfMeals, const std::string& mealName, const std::string& time);
+
+    // Methods
+    void equalMeal();
+    void editCarbs();
+    void editProteins();
+    void editFats();
+    void seeMeal();
+};
