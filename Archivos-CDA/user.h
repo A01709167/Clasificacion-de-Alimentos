@@ -1,5 +1,7 @@
 #include <iostream>
+#include <array>
 using namespace std;
+
 class User {
 private:
     std::string name;
