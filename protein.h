@@ -3,13 +3,17 @@
 
 #include <string>
 #include <vector>
+#include "food.h"
 
-class Protein {
+class Protein: public Food {
 private:
     std::string base;
+    std::string proteinType;
 
 public:
-    bool isEnough(double amount);
+    bool isEnough(double protein);
+    bool isLean(double fats, double protein);
+    std::vector<std::string> show(const std::string &proteinType);
     std::vector<std::string> show(const std::string& proteinType);
 };
 

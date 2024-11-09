@@ -5,6 +5,8 @@ bool Fats::isSaturated(double saturatedFat) {
     return false; // 
 }
 
+Fats::~Fats() = default;
+
 std::vector<std::string> Fats::show(const std::string& options) {
     // Displays a list of all the foods that the user has entered which are fats
     return {}; // 

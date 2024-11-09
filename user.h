@@ -12,9 +12,7 @@ private:
     double deficitCals;
     double bulkCals;
     std::string goal;
-    std::string state; // "maintenance", "bulk", "deficit"
     std::array<double, 3> split; // Percentage split for carbs, proteins, fats
-    std::vector<int> split;
     std::vector<int> plan;
 
 public:
@@ -23,9 +21,12 @@ public:
 
     // Methods
     void setName(const std::string& name);
-    std::string setGoal();
-    void findMaintenance(double cals,  double weight, double height);
-    double findBulkCals(double cals);
-    double findDeficitCals(double cals);
+    void setGoal(const std::string &goal);
+    void setSplit(std::array<double, 3> split);
+
+    void findMaintenance(double calories,  double weight, double height);
+    double findBulkCals(double calories, string goal);
+    double findDeficitCals(double calories, string goal);
+
     double getHeight(double height);
 };

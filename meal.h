@@ -19,7 +19,7 @@ public:
 
     // Methods
     void setTime(std::string);
-    std::vector<std::vector<int>>& setEqualMeal(const std::vector<std::vector<int>>& mealMatrix);
+    std::vector<std::vector<int>>& setEqualMeal(const std::vector<std::vector<int>>& mealMatrix); //Divide las porciones equitativamente en la cantidad de comidas siendo la cena la última
     void editCarbs(int carbs);
     void editProteins(int proteins);
     void editFats(int fats);

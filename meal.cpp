@@ -1,4 +1,7 @@
 #include "Meal.h"
+#include "user.h"
+
+Meal::~Meal() = default;
 
 void Meal::setTime(std::string) {
     // Sólo dice la hora en la que se comerá (mañana, tarde)

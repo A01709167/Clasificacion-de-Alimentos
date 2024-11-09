@@ -12,7 +12,6 @@ private:
     std::string group; // what group does the food belongs to
 
 public:
-    // Constructor
     Food(const std::string& name, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split);
 
     // Methods

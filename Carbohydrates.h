@@ -3,8 +3,9 @@
 
 #include <string>
 #include <vector>
+#include "food.h"
 
-class Carbohydrates {
+class Carbohydrates : public Food{
 private:
     double sugar;
     std::string type;

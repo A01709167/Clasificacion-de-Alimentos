@@ -1,11 +1,12 @@
 // Fats
 #ifndef FATS_H
 #define FATS_H
+#include "food.h"
 
 #include <string>
 #include <vector>
 
-class Fats {
+class Fats : public Food {
 private:
     std::string type;
     double saturatedFat;
