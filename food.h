@@ -16,7 +16,7 @@ public:
     Food(const std::string& name, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split);
 
     // Methods
-    void portionGrams();
-    void group();
-    void showValues();
+    double portion(double calories, string group);
+    std::string group(double carbs, double proteins, double fats);
+    std::string showFood(const std::string& foodName);
 };
