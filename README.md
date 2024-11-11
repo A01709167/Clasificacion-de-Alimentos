@@ -15,7 +15,7 @@ User: The person the plan is intended to
     Calories: The calories of said plan
     Number of meals: The number of meals, normally 5
     Carbs: The portions of carbohydrates according to the split
-    Proteins-: Portions of proteins according to the split
+    Proteins: Portions of proteins according to the split
     Fats: Portions of fats
     Meals: The meal in one day, like breakfast
       Name: TO identify meal, breakfast, snack, etc
@@ -27,6 +27,8 @@ User: The person the plan is intended to
       Fats : The number of portions of fats
         Saturated fat: In grams
         isSaturated: Yes or no
+![Diagrama de Clases]("C:\Users\pug5a\projects\Proyecto nutrición\UMLClasificacionDeAlimentos.png")
+
 
         
       Proteins: The number of portions of proteins
