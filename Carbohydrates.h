@@ -1,3 +1,4 @@
+//Carbohydrates is the first of the three macronutrients. Almost a 50% of our diet must come from carbohydrates, unless  you choose another diet like Keto where carbs won't be considered.
 #ifndef CARBOHYDRATES_H
 #define CARBOHYDRATES_H
 

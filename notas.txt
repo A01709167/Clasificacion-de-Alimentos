@@ -42,3 +42,8 @@ meal.editCarbs() //Takes or removes a portion of the meal
 meal.editProteins() //Takes or removes a portion of protein
 meal.editFats() //Takes or removes a portion from the equal meal
 meal.seeMeal() //Displays the time to eat, the name of the meal, the calories it has and the portions
+
+
+Acerca de la clase ~.*~
+cins y couts van únicamente en el maintain
+Create objects on the main using the getters: get.Area()
