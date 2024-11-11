@@ -26,10 +26,9 @@ User: The person the plan is intended to
         Fruit or Vegetable: carbs are fruits and vegetables
       Fats : The number of portions of fats
         Saturated fat: In grams
-        isSaturated: Yes or no
-![Diagrama de Clases]("C:\Users\pug5a\projects\Proyecto nutrición\UMLClasificacionDeAlimentos.png")
-
-
-        
+        isSaturated: Yes or no        
       Proteins: The number of portions of proteins
         Base: Proteins can be animal or plant based
+
+
+![alt text](<UMLClasificacionDeAlimentos.drawio (2).png>)
