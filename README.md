@@ -27,5 +27,7 @@ User: The person the plan is intended to
       Fats : The number of portions of fats
         Saturated fat: In grams
         isSaturated: Yes or no
+
+        
       Proteins: The number of portions of proteins
         Base: Proteins can be animal or plant based
