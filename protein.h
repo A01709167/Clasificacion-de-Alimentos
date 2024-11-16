@@ -1,3 +1,4 @@
+//Proteins are the final macronutrient and is one of the most important one. Protein inherits the attributes of FOOD, but it has its own sources and ammounts
 #ifndef PROTEIN_H
 #define PROTEIN_H
 

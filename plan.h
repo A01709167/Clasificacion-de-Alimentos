@@ -1,3 +1,4 @@
+//A user has a meal plan which is composed of meals which is composed of portions 
 #include <iostream>
 #include <vector>
 #include <array>

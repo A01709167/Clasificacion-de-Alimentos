@@ -1,21 +1,34 @@
+//Food is a class used to enter different foods, like apple or jam. Foods have their own properties and foods can be divided into three macronutrients (carbs, proteins and fats)
+#ifndef FOOD_H
+#define FOOD_H
 #include <iostream>
 using namespace std;
 
 class Food {
-private:
-    std::string name;
-    double calories;
+protected:
+    string name;
+    double calories; //per 100 g
     double carbs;
     double proteins;
     double fats;
     double portionSize;
-    std::string group; // what group does the food belongs to
+    string group; // what group does the food belongs to
 
 public:
-    Food(const std::string& name, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split);
+    Food();
+    Food(string, double, double, double, double, double, string);
+    string getName();
+    double getCalories(); 
+    double getCarbs(); //THis is usually represented in the nutritional label in a percentage of the whole
+    double getProteins();
+    double getFats();
+    double getPortionSize();
+    string getGroup();
+    void setGroup(string); //this value is changed by the program
 
-    // Methods
-    double portion(double calories, string group);
-    std::string group(double carbs, double proteins, double fats);
-    std::string showFood(const std::string& foodName);
+    double portion();
+    int defineGroup();
+    string showFood();
 };
+
+#endif;

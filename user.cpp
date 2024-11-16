@@ -1,7 +1,17 @@
 // User.cpp
 #include "User.h"
+#include <iostream>
 
-User::~User() = default;
+/// @param _split 
+User::User(string _name, double _weight, double _height, double _calories, string _goal, const std::array<double, 3>& _split){
+    name =_name;
+    weight= _weight;
+    height = _height;
+    calories = _calories;
+    goal= _goal;
+    split = _split;
+
+};
 
 void User::setName(const std::string& name) {
     this->name = name;

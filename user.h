@@ -5,19 +5,19 @@ using namespace std;
 
 class User {
 private:
-    std::string name;
+    string name;
     double weight;
     double height;
     double calories;
     double deficitCals;
     double bulkCals;
-    std::string goal;
-    std::array<double, 3> split; // Percentage split for carbs, proteins, fats
-    std::vector<int> plan;
+    string goal;
+    array<double, 3> split; // Percentage split for carbs, proteins, fats
+    vector<int> plan;
 
 public:
     // Constructor
-    User(const std::string& name, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split);
+    User(string _name, double _weight, double _height, double _calories, string _goal, const std::array<double, 3>& _split);
 
     // Methods
     void setName(const std::string& name);
@@ -29,4 +29,6 @@ public:
     double findDeficitCals(double calories, string goal);
 
     double getHeight(double height);
+    double getWeight(double weight);
+    void setWeight(double weight);
 };

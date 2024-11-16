@@ -1,4 +1,4 @@
-// Fats
+// Fats are the third macronutrient. FOODS can be FATS if the percentage of fats in their nutritional composition is larger than the other two macronutrients.
 #ifndef FATS_H
 #define FATS_H
 #include "food.h"

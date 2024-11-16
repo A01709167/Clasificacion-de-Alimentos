@@ -1,3 +1,4 @@
+//A user has a plan which has meals. A meal is composed of portions of foods, eg. 3 portions of carbohydrates.
 #include <iostream>
 using namespace std;
 #include "plan.h"
