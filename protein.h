@@ -9,13 +9,27 @@
 class Protein: public Food {
 private:
     std::string base;
-    std::string proteinType;
+    std::string type;
+    bool lean;
+    bool enough;
 
 public:
-    bool isEnough(double protein);
-    bool isLean(double fats, double protein);
-    std::vector<std::string> show(const std::string &proteinType);
-    std::vector<std::string> show(const std::string& proteinType);
+    //CONSTRUCTOR
+    Protein::Protein(string _name, double _calories, double _carbs, double _proteins, double _fats);
+
+    bool isEnough();
+    bool isLean();
+    string show(string proteinValue);
+
+    void setBase(string);
+    void setType(string);
+    void setLean(bool);
+    void setEnough(bool);
+
+    string getBase();
+    string getType();
+    bool getLean();
+    bool getEnough();
 };
 
 #endif // PROTEIN_H
