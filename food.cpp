@@ -2,17 +2,28 @@
 #include <string>
 using namespace std;
 
-Food::Food(string _name, double _calories, double _carbs, double _proteins, double _fats, double _portionSize, string _group){
+#include <iomanip> // Formatting
+#include <sstream> // For formatting
+
+std::string formatDouble(double value) {
+    std::ostringstream out;
+    out << std::fixed << std::setprecision(2) << value;
+    return out.str();
+}
+
+
+Food::Food(string _name, double _calories, double _carbs, double _proteins, double _fats){
     name = _name;
     calories = _calories;
+    carbs = _carbs;
     proteins = _proteins;
     fats = _fats;
-    portionSize = _portionSize;
-    group = _group;
 }
+
 //Setters and getters
 void Food::setGroup(string _group){
     group = _group;
+    
 }
 string Food::getName(){
     return name;
@@ -45,26 +56,31 @@ double Food::portion()
     return portionSize; // Placeholder return
 }
 
-int Food::defineGroup() {
-    float values[3];
-    string names[3];
-    float largest = values[0];
-    string name;
-    for (int i = 1; i < 3; ++i) {
-        if (values[i] > largest) {
-            largest = values[i];
-            name = names[i];
-        };
-    };
-    // Decide de qué grupo de alimento (carbs, prote o fats dependiendo del porcentaje)
-    Food::setGroup(name);
-    return 0;
-}
+
 
 
 std::string Food::showFood(){
-    std::cout<<"message"<<endl;
-    //Bla bla bla
-    return "bakarayo"; //Regresa la lista de la información nutricional ingresada del alimento
+    std::string message = getName() + " has:\n " + " " + formatDouble(getCalories())+" calories \n"+ " " +formatDouble(getProteins()) + " proteins\n" + " " +formatDouble(getCarbs()) + " carbs\n" + " " +formatDouble(getFats()) +" fats";
+    return message; //Regresa la lista de la información nutricional ingresada del alimento
 }
 
+int Food::defineGroup() {
+    carbs = getCarbs();
+    fats = getFats();
+    proteins = getProteins();
+
+    double values[3]={carbs, fats, proteins};
+    string groups[3]={"Carb", "Protein", "Fat"};
+
+    string fgroup = "blablabla";
+    double largest = values[0];
+
+    for (int i = 0; i <= 3; ++i) {
+        if (values[i] >= largest) {
+            largest = values[i];
+            fgroup=groups[i];
+        };
+    };
+    Food::setGroup(fgroup);
+    return 0;
+}

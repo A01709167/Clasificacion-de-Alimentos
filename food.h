@@ -16,7 +16,7 @@ protected:
 
 public:
     Food();
-    Food(string, double, double, double, double, double, string);
+    Food(string _name, double _calories, double _carbs, double _proteins, double _fats);
     string getName();
     double getCalories(); 
     double getCarbs(); //THis is usually represented in the nutritional label in a percentage of the whole
@@ -31,4 +31,4 @@ public:
     string showFood();
 };
 
-#endif;
+#endif
