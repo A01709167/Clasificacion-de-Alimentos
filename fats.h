@@ -5,16 +5,29 @@
 
 #include <string>
 #include <vector>
+using namespace std;
 
 class Fats : public Food {
 private:
-    std::string type;
+    std::string type;//saturated or insaturated
     double saturatedFat;
+    double saturated;
 
 public:
-    bool isSaturated(double saturatedFat);
-    std::vector<std::string> show(const std::string& fat);
-    std::string group(double proteins, double fats);
+    //Constructor
+    Fats(string _name, double _calories, double _carbs, double _proteins, double _fats, double _saturatedFat);
+
+    //GETTERS
+    string getType();
+    double getSaturatedFat();
+    bool getSaturated();
+    //SETTERS
+    void setType(string _type);
+    void setSaturatedFat(double _saturatedFat);
+    //METHODS
+    bool isSaturated();
+    std::vector<std::string> show();
+    std::string whatType();
 };
 
-#endif // FATS_H
+#endif // FATS_H;

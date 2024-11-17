@@ -1,6 +1,7 @@
 #include <iostream>
 #include "carbohydrate.cpp"
 #include "food.cpp"
+#include "fats.cpp"
 using namespace std;
 
 int main()
@@ -10,7 +11,7 @@ int main()
     //Show Food
     std::cout<< apple.showFood()<<endl;
     string applename = apple.getName();
-    std::cout <<"I love to eat " <<applename<<" !!"<<std::endl;
+    std::cout <<"I like to eat " <<applename<<" !!"<<std::endl;
 
     //Get group
     apple.defineGroup();
@@ -23,5 +24,9 @@ int main()
 //CARBOHYDRATE CLASS
     Carbohydrate oreo("oreo", 170, 25, 1, 7, 14, 0.5);
     std::cout<< oreo.getName() <<" is healthy? "<< oreo.isHealthy()<<endl;
+    
+//Fats class
+    Fats mayonnaise("mayonnaise", 40.3, 34.3, 34.34, 56.6, 56.7);
+    std::cout<<mayonnaise.getName()<<" is "<<mayonnaise.whatType() <<std::endl;
     return 0;
 }
