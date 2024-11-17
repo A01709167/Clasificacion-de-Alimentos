@@ -1,15 +1,40 @@
 #include "carbohydrate.h"
-
-Carbohydrate::Carbohydrate(double _sugar, double _fiber)
-:Food(const std::string& name, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split){
-    sugar=_sugar;
+using namespace std;
+Carbohydrate::Carbohydrate(string _name, double _calories, double _carbs, double _proteins, double _fats, double _sugar, double _fiber)
+    : Food(_name, _calories, _carbs, _proteins, _fats) {
+    sugar = _sugar;
     fiber = _fiber;
 }
 
-bool Carbohydrate::isHealthy(double _sugar, double _fiber) {
-    sugar = _sugar;
-    fiber = _fiber;
-    return false; // If it has too much sugar it says false
+//Getters
+double Carbohydrate::getSugar(){
+    return sugar;
+};
+double Carbohydrate::getFiber(){
+    return fiber;
+};
+string Carbohydrate::getType(){
+    return type;
+}
+
+//Setter
+void Carbohydrate::setType(string _type){
+    type = _type;
+};
+
+//Methods
+bool Carbohydrate::isHealthy() {
+    sugar = getSugar();
+    fiber = getFiber();
+    bool healthy= true;
+    if (sugar>fiber){
+        healthy = false;
+    }
+    else if (sugar<fiber){
+        healthy = true;
+    }
+
+    return healthy; // If it has too much sugar it says false
 }
 
 std::vector<std::string> Carbohydrate::show(const std::string& options) {

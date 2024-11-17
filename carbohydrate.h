@@ -8,19 +8,21 @@
 
 class Carbohydrate : public Food{
 private:
-    double sugar;
-    std::string type;
-    double fiber;
+    double sugar; //Here we enter the Grams of sugar the food has
+    double fiber; //here we enter the GRAMS of Dietary Fiber the food has
+    std::string type; //if it's a fruit, vegetable or other
 
 public:
     void setSugar(double sugar);
     void setFiber(double fiber);
+    void setType(string _type);
     double getSugar();
     double getFiber();
+    string getType();
     
-    Carbohydrate(double sugar, double fiber);
-    bool isHealthy(double sugar, double fiber);
-    std::vector<std::string> show(const std::string& options);
+    Carbohydrate(string _name, double _calories, double _carbs, double _proteins, double _fats, double _sugar, double _fiber);
+    bool isHealthy();
+    std::vector<std::string> show(const std::string& options); //HOW TO RETRIEVER ALL THE OBJECTS BUILT WITHIN A CLASS?
 };
 
 #endif // CARBOHYDRATE_H

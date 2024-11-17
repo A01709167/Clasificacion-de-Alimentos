@@ -24,8 +24,8 @@ public:
     double getFats();
     double getPortionSize();
     string getGroup();
+    void setPortionSize(double);
     void setGroup(string); //this value is changed by the program
-
     double portion();
     int defineGroup();
     string showFood();

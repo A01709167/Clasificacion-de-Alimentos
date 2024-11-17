@@ -1,4 +1,4 @@
-#include "Food.h"
+#include "food.h"
 #include <string>
 using namespace std;
 
@@ -23,8 +23,11 @@ Food::Food(string _name, double _calories, double _carbs, double _proteins, doub
 //Setters and getters
 void Food::setGroup(string _group){
     group = _group;
-    
 }
+void Food::setPortionSize(double _portion){
+    portionSize = _portion;
+}
+
 string Food::getName(){
     return name;
 };
@@ -52,12 +55,22 @@ string Food::getGroup(){
 //Methods
 double Food::portion()
 {
+    string group = getGroup();
+    calories = getCalories(); //the calories of 100 g of food
+    double _portion = 0.0;
+    if (group == "Carb"){
+        _portion = 7700/calories;
+    }
+    else if (group =="Protein"){
+        _portion = 7000/calories;
+    }
+    else if (group =="Fat"){
+        _portion = 4500/calories;
+    };
+    setPortionSize(_portion);
     // Dependiendo del grupo, calcula los gramos//
-    return portionSize; // Placeholder return
+    return _portion; // Placeholder return
 }
-
-
-
 
 std::string Food::showFood(){
     std::string message = getName() + " has:\n " + " " + formatDouble(getCalories())+" calories \n"+ " " +formatDouble(getProteins()) + " proteins\n" + " " +formatDouble(getCarbs()) + " carbs\n" + " " +formatDouble(getFats()) +" fats";
