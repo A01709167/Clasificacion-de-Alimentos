@@ -4,28 +4,41 @@
 #include <array>
 #include "user.h"
 
+#ifndef PLAN_H
+#define PLAN_H
+
 using namespace std;
+
+class User; //i don't know what's this for, but i cannot move forward without this
 
 class Plan : public User {
 private:
+    string planName;
     int numberOfMeals;
-    double calories;
+    double planCalories;
     int carbs;
     int proteins;
     int fats;
     std::array<std::string, 10> meals;
+    std::array<double,3> split; //carbs, proteins, fats percentage
+    std::array<std::int, 3> equalMeal;
 
 public:
     // Constructor
-    Plan(const std::string& name, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split, int numberOfMeals);
-
+    Plan(string _planName, std::array<double, 3> _split, int _numberOfMeals);
     // Methods
-    void setMeals(int meals, double calories);
-    int setCarbs(int carbs, double calories);
-    int setFats(int fats, double calories);
+
+    void setMeals(int _numberOfMeals);
+    void setMacros();
+
+    int getNumberofMeals();
+    int getCarbs();
+    int getProteins();
+    int getFats();
+
     std::array<std::string, 3 > seePortions(int portions); //Shows the portions of each group
     std::array<int, 3> equalSplit(int numberOfMeals, int carbs, int proteins, int fats); //I want this to be a variable array? How?
     std::array<std::string, 10> showPlan(const std::array<std::string, 10>& plan);
-    int setProteins(int proteins, double calories);
 };
 
+#endif

@@ -8,9 +8,6 @@ std::string formatDouble(double value) {
     return out.str();
 }
 
-Protein::Protein(string _name, double _calories, double _carbs, double _proteins, double _fats):Food(_name, _calories, _carbs, _proteins, _fats){
-}
-
 //SETTERS AND GETTERS
 
 void Protein::setBase(string _base){

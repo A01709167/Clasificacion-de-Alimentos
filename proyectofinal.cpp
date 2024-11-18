@@ -3,10 +3,12 @@
 #include "food.cpp"
 #include "fats.cpp"
 #include "user.cpp"
+#include "plan.cpp"
 using namespace std;
 
 int main()
 {
+
     cout << "Bienvenido al protrama de Alimentacion Balanceada"<<std::endl;
     Food apple("Manzanita", 55.00, 90.00, 3.00, 2.00);
     //Show Food
@@ -35,6 +37,9 @@ int main()
     std::cout<<"User is working. Calories is "<<Anna.findMaintenance()<<Anna.findBulkCals()<<Anna.findDeficitCals()<<endl;
     Anna.askGoal();
     std::cout<<"enddd"<<endl;
+//PLAN
+
+    Plan plan1("Plan to gain weight", {50, 30, 20}, 5);
 
     return 0;
 }

@@ -1,7 +1,11 @@
 #include <iostream>
 #include <array>
+#include "plan.h"
 using namespace std;
 
+#ifndef USER_H
+#define USER_H
+class Plan;
 class User {
 private:
     string name;
@@ -15,6 +19,7 @@ private:
     string goal;
     array<double, 3> split; // Percentage split for carbs, proteins, fats
     double increment;
+    Plan userPlan;
 
 public:
     // Constructor
@@ -31,6 +36,7 @@ public:
     void setGoal(string _goal);
     void setIncrement(double _increment);
     void setSplit(array<double, 3> _split);
+    void setPlan(Plan _plan);
 
     //getters
     double getHeight();
@@ -42,6 +48,7 @@ public:
     double getBulk();
     string getGoal();
     array<double, 3> getSplit(array <double,3>);
+    Plan getPlan();
 
     //METHODS
     void askGoal();
@@ -49,3 +56,5 @@ public:
     double findBulkCals();
     double findDeficitCals();
 };
+
+#endif

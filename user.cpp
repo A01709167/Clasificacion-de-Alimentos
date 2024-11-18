@@ -41,6 +41,9 @@ void User::setGoal(string _goal) {
 void User::setIncrement(double _increment){
     increment=_increment;
 }
+void User::setPlan(Plan _plan){
+    usePlan = _plan
+};
 
 void User::askGoal(){
     int option;
@@ -112,6 +115,9 @@ string User:: getGenre(){
 }
 int User::getAge(){
     return age;
+}
+Plan User::getPlan(){
+    return userPlan;
 }
 
 //Methods 
