@@ -1,11 +1,8 @@
 // User.cpp
+#include "plan.h"
 #include "user.h"
 
-/// @param _split 
-User::User(){}
-
-User::User(string _genre, int _age, double _weight, double _height)
-{
+User::User(string _genre, int _age, double _weight, double _height){
     genre = _genre;
     age = _age;
     weight = _weight;
@@ -42,7 +39,7 @@ void User::setIncrement(double _increment){
     increment=_increment;
 }
 void User::setPlan(Plan _plan){
-    usePlan = _plan
+    userPlan = _plan;
 };
 
 void User::askGoal(){

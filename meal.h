@@ -6,21 +6,23 @@ using namespace std;
 // Class representing an individual meal
 class Meal : public Plan {
 private:
-    std::string name;
-    std::string time;
+    string planName;
+    string mealName;
+    string time;
     int carbs;
     int proteins;
     int fats;
-    std::vector<std::vector<int>>& equalMeal;
-    std::vector<std::vector<int>>& mealMatrix;
+    std::array<int, 5> equalMeal;
+    std::array<int, 3> mealMatrix;
 
 public:
     // Constructor
-    Meal(const std::string& planName, double weight, double height, double calories, const std::string& state, const std::array<double, 3>& split, int numberOfMeals, const std::string& mealName, const std::string& time);
+    Meal(string _planName, string _mealName, string _time);
 
     // Methods
-    void setTime(std::string);
-    std::vector<std::vector<int>>& setEqualMeal(const std::vector<std::vector<int>>& mealMatrix); //Divide las porciones equitativamente en la cantidad de comidas siendo la cena la última
+    void setName(string _name);
+    void setTime(std::string _time);
+    void setEqualMeal(std::array<int, 3> _equalmeal); //Divide las porciones equitativamente en la cantidad de comidas siendo la cena la última
     void editCarbs(int carbs);
     void editProteins(int proteins);
     void editFats(int fats);

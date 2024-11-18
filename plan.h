@@ -2,16 +2,14 @@
 #include <iostream>
 #include <vector>
 #include <array>
-#include "user.h"
 
 #ifndef PLAN_H
 #define PLAN_H
 
 using namespace std;
 
-class User; //i don't know what's this for, but i cannot move forward without this
 
-class Plan : public User {
+class Plan {
 private:
     string planName;
     int numberOfMeals;
@@ -19,16 +17,21 @@ private:
     int carbs;
     int proteins;
     int fats;
-    std::array<std::string, 10> meals;
+    vector<double> mealCarbs;
+    vector<double> mealFats;
+    vector<double> mealProteins;
+    std::array<std::string, 5> meals;
     std::array<double,3> split; //carbs, proteins, fats percentage
-    std::array<std::int, 3> equalMeal;
+    std::array<int, 3> equalMeal;
+    
 
 public:
     // Constructor
-    Plan(string _planName, std::array<double, 3> _split, int _numberOfMeals);
+    Plan();
+    Plan(double _planCalories, string _planName, std::array<double, 3> _split, int _numberOfMeals);
     // Methods
-
-    void setMeals(int _numberOfMeals);
+    void setPlanCalories(double _calories);
+    std::vector<int> setMeals(int _numberOfMeals);
     void setMacros();
 
     int getNumberofMeals();
@@ -38,7 +41,7 @@ public:
 
     std::array<std::string, 3 > seePortions(int portions); //Shows the portions of each group
     std::array<int, 3> equalSplit(int numberOfMeals, int carbs, int proteins, int fats); //I want this to be a variable array? How?
-    std::array<std::string, 10> showPlan(const std::array<std::string, 10>& plan);
+    void showPlan();
 };
 
 #endif

@@ -6,9 +6,7 @@
 #include "plan.cpp"
 using namespace std;
 
-int main()
-{
-
+int main(){
     cout << "Bienvenido al protrama de Alimentacion Balanceada"<<std::endl;
     Food apple("Manzanita", 55.00, 90.00, 3.00, 2.00);
     //Show Food
@@ -36,10 +34,10 @@ int main()
     User Anna("Female", 23, 60, 170);
     std::cout<<"User is working. Calories is "<<Anna.findMaintenance()<<Anna.findBulkCals()<<Anna.findDeficitCals()<<endl;
     Anna.askGoal();
+    Plan plan1(Anna.getCalories(), "Plan to gain weight", {50, 30, 20}, 5);
+    Anna.setPlan(plan1);
+    plan1.setMeals(5);
+    plan1.showPlan();
     std::cout<<"enddd"<<endl;
-//PLAN
-
-    Plan plan1("Plan to gain weight", {50, 30, 20}, 5);
-
     return 0;
-}
+};

@@ -1,15 +1,26 @@
-#include "Meal.h"
+#include "meal.h"
 #include "user.h"
+#include "plan.h"
 
-Meal::~Meal() = default;
+void Meal::setName(string _mealName){
+    mealName = _mealName;
+}
 
-void Meal::setTime(std::string) {
+Meal::Meal(string _planName, string _mealName, string _time)
+{
+    planName = _planName;
+    mealName = _mealName;
+    time = _time;
+}
+
+void Meal::setTime(string _time)
+{
+    time = _time;
     // Sólo dice la hora en la que se comerá (mañana, tarde)
 }
 
-std::vector<std::vector<int>>& Meal::setEqualMeal(const std::vector<std::vector<int>>& mealMatrix) {
-    // 
-    return equalMeal;
+void Meal::setEqualMeal(std::array<int, 3> _equalMeal) {
+    equalMeal= _equalMeal;
 }
 
 void Meal::editCarbs(int carbs) {

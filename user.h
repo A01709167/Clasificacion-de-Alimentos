@@ -5,7 +5,6 @@ using namespace std;
 
 #ifndef USER_H
 #define USER_H
-class Plan;
 class User {
 private:
     string name;
@@ -23,7 +22,6 @@ private:
 
 public:
     // Constructor
-    User();
     User(string _genre, int _age, double _weight, double _height); //I built this constructor to verify FINDCALORIES method
     //SETTERS 
     void setName(string _name);
@@ -55,6 +53,7 @@ public:
     double findMaintenance();
     double findBulkCals();
     double findDeficitCals();
+
 };
 
 #endif
