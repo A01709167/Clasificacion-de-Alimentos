@@ -1,34 +1,51 @@
 #include <iostream>
 #include <array>
 using namespace std;
-#include <vector>
 
 class User {
 private:
     string name;
+    string genre; //This is Male or Female
+    int age;
     double weight;
-    double height;
+    double height; //In cm
     double calories;
-    double deficitCals;
-    double bulkCals;
+    double deficit;
+    double bulk;
     string goal;
     array<double, 3> split; // Percentage split for carbs, proteins, fats
-    vector<int> plan;
+    double increment;
 
 public:
     // Constructor
-    User(string _name, double _weight, double _height, double _calories, string _goal, const std::array<double, 3>& _split);
+    User();
+    User(string _genre, int _age, double _weight, double _height); //I built this constructor to verify FINDCALORIES method
+    //SETTERS 
+    void setName(string _name);
+    void setGenre(string _genre);
+    void setAge( int _age);
+    void setWeight(double _weight);
+    void setCalories(double _calories);
+    void setDeficit(double _deficit);
+    void setBulk(double _bulk);
+    void setGoal(string _goal);
+    void setIncrement(double _increment);
+    void setSplit(array<double, 3> _split);
 
-    // Methods
-    void setName(const std::string& name);
-    void setGoal(const std::string &goal);
-    void setSplit(std::array<double, 3> split);
+    //getters
+    double getHeight();
+    string getGenre();
+    int getAge();
+    double getWeight();
+    double getCalories();
+    double getDeficit();
+    double getBulk();
+    string getGoal();
+    array<double, 3> getSplit(array <double,3>);
 
-    void findMaintenance(double calories,  double weight, double height);
-    double findBulkCals(double calories, string goal);
-    double findDeficitCals(double calories, string goal);
-
-    double getHeight(double height);
-    double getWeight(double weight);
-    void setWeight(double weight);
+    //METHODS
+    void askGoal();
+    double findMaintenance();
+    double findBulkCals();
+    double findDeficitCals();
 };

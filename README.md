@@ -5,11 +5,12 @@ Finally, the user will choose the ammount of meals they're willing to eat and di
 Classes definition
 User: The person the plan is intended to
   Name: To identify said user
+  Genre: To calculate the ammount of calories the user most it. It's Male or female
   Weight: To measure appropriate calories
-  Height: TO measure MBI and calories
+  Height: TO measure MBI and calories, it is measured in CM
   Age: TO measure health risk lines
   Goal: To mantain, gain or loose weight
-  Calories: The calories to reach the goal
+  Calories: The maintenance calories
   Split: The percentage of the split of the three macronutrients
   Plan: The meals the user has on a day
     Calories: The calories of said plan

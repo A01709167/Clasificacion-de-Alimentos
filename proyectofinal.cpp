@@ -2,6 +2,7 @@
 #include "carbohydrate.cpp"
 #include "food.cpp"
 #include "fats.cpp"
+#include "user.cpp"
 using namespace std;
 
 int main()
@@ -28,5 +29,12 @@ int main()
 //Fats class
     Fats mayonnaise("mayonnaise", 40.3, 34.3, 34.34, 56.6, 56.7);
     std::cout<<mayonnaise.getName()<<" is "<<mayonnaise.whatType() <<std::endl;
+    
+//USER
+    User Anna("Female", 23, 60, 170);
+    std::cout<<"User is working. Calories is "<<Anna.findMaintenance()<<Anna.findBulkCals()<<Anna.findDeficitCals()<<endl;
+    Anna.askGoal();
+    std::cout<<"enddd"<<endl;
+
     return 0;
 }
