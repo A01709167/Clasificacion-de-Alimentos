@@ -3,33 +3,33 @@ My proyects goal is to create a nutritional plan to achieve an adequate alimenta
 Finally, the user will choose the ammount of meals they're willing to eat and distribute the portions onto these meals. To increase user experience, the user will be able to introduce their favorite foods and their nutritional value to not only get the appropriate portion size in grams, but also see if it's implementation is healthy or not.
 
 - Classes definition
-User: The person the plan is intended to
-  Name: To identify said user
-  Genre: To calculate the ammount of calories the user most it. It's Male or female
-  Weight: To measure appropriate calories
-  Height: TO measure MBI and calories, it is measured in CM
-  Age: TO measure health risk lines
-  Goal: To mantain, gain or loose weight
-  Calories: The maintenance calories
-  Split: The percentage of the split of the three macronutrients
-  Plan: The meals the user has on a day
-    Calories: The calories of said plan
-    Number of meals: The number of meals, normally 5
-    Carbs: The portions of carbohydrates according to the split
-    Proteins: Portions of proteins according to the split
-    Fats: Portions of fats
-    Meals: The meal in one day, like breakfast
-      Name: TO identify meal, breakfast, snack, etc
-      Time: The time the meal is intended too; ex. "morning".
-      Carbs: The number of portions of carbs
-        Sugar content: Grams of sugar
-        Type of carb:Slow or fast digestion
-        Fruit or Vegetable: carbs are fruits and vegetables
-      Fats : The number of portions of fats
-        Saturated fat: In grams
-        isSaturated: Yes or no        
-      Proteins: The number of portions of proteins
-        Base: Proteins can be animal or plant based
+- User: The person the plan is intended to
+  - Name: To identify said user
+  - Genre: To calculate the ammount of calories the user most it. It's Male or female
+  - Weight: To measure appropriate calories
+  - Height: TO measure MBI and calories, it is measured in CM
+  - Age: TO measure health risk lines
+  - Goal: To mantain, gain or loose weight
+  - Calories: The maintenance calories
+  - Split: The percentage of the split of the three macronutrients
+  - Plan: The meals the user has on a day
+    - Calories: The calories of said plan
+    - Number of meals: The number of meals, normally 5
+    - Carbs: The portions of carbohydrates according to the split
+    - Proteins: Portions of proteins according to the split
+    - Fats: Portions of fats
+    - Meals: The meal in one day, like breakfast
+      - Name: TO identify meal, breakfast, snack, etc
+      - Time: The time the meal is intended too; ex. "morning".
+      - Carbs: The number of portions of carbs
+        - Sugar content: Grams of sugar
+        - Type of carb:Slow or fast digestion
+        - Fruit or Vegetable: carbs are fruits and vegetables
+      - Fats : The number of portions of fats
+        - Saturated fat: In grams
+        - isSaturated: Yes or no        
+      - Proteins: The number of portions of proteins
+      - Base: Proteins can be animal or plant based
 
 ![DIAGRAMA DE CLASES drawio](https://github.com/user-attachments/assets/8cb17c28-26c6-4c2c-ba17-a488996b1312)
 
