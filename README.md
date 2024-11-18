@@ -31,5 +31,5 @@ User: The person the plan is intended to
       Proteins: The number of portions of proteins
         Base: Proteins can be animal or plant based
 
+![DIAGRAMA DE CLASES drawio](https://github.com/user-attachments/assets/8cb17c28-26c6-4c2c-ba17-a488996b1312)
 
-![alt text](<UMLClasificacionDeAlimentos.drawio (2).png>)
