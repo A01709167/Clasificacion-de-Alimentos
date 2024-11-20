@@ -1,8 +1,8 @@
 //A user has a plan which has meals. A meal is composed of portions of foods, eg. 3 portions of carbohydrates.
 #include <iostream>
+#include <vector>
 using namespace std;
 #include "plan.h"
-#include <vector>
 #include "fats.h"
 #include "carbohydrate.h"
 #include "protein.h"
@@ -18,11 +18,10 @@ private:
     int mealProteins;
     int mealFats;
 
+    //I didn't declare this first as I did not know how to add an undefined ammount of each
     std::vector <Protein> proteins;
     std::vector <Fats> fats;
     std::vector <Carbohydrate> carbohydrates;
-
-//Here meal has foods, but we don't know how many !!!!
 
 public:
     // Constructor

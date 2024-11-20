@@ -34,8 +34,7 @@ int main(){
     User Anna("Female", 23, 60, 170);
     std::cout<<"User is working. Calories is "<<Anna.findMaintenance()<<Anna.findBulkCals()<<Anna.findDeficitCals()<<endl;
     Anna.askGoal();
-    Plan plan1(Anna.getCalories(), "Plan to gain weight", {50, 30, 20}, 5);
-    Anna.setPlan(plan1);
-    std::cout<<"enddd"<<endl;
+
+
     return 0;
 };

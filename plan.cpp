@@ -4,14 +4,15 @@
 using namespace std;
 #include <string>
 
+
+
 Plan::Plan(double planCalories, std::array<double, 3> _split, int _numberOfMeals){
     split = _split;
     numberOfMeals = _numberOfMeals;// Sets the number of meals per day, example 5
-    meals.resize(_numberOfMeals);
+    meals.resize(numberOfMeals);
 }
 
-void Plan::setPlanCalories(double _planCalories)
-{
+void Plan::setPlanCalories(double _planCalories){
     planCalories = _planCalories;
 };
 
@@ -77,7 +78,7 @@ std::vector<Meal> Plan::setMeals(){
         int mealCarbs = baseCarbs + (i < extraCarbs ? 1 : 0);
         int mealProteins = baseProteins + (i < extraProteins ? 1 : 0);
         int mealFats = baseFats + (i < extraFats ? 1 : 0);
-        meals.emplace_back(mealCarbs, mealProteins, mealFats);
+        meals.emplace_back(mealCarbs, mealProteins, mealFats); //THIS CREATES several objects type MEAL that recieve the INT of the mealCarbs (the portions, then the meal has to be constructed)
     }
     std::cout<<"Meals set correctly "<<endl;
 }

@@ -33,6 +33,8 @@ private:
 
 
 public:
+    //Default constructor
+    Plan(): planCalories(3000), split({0.0, 0.0, 0.0}), numberOfMeals(5) {}
     // Constructor
     Plan(double _planCalories, std::array<double, 3> _split, int _numberOfMeals);
 

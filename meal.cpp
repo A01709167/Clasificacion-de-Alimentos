@@ -6,6 +6,7 @@ using namespace std;
 #include <string>
 
 
+//Me falta construír la meal, añadir las foods
 void Meal::setName(string _mealName){
     mealName = _mealName;
 }
@@ -13,8 +14,7 @@ string Meal:: getMealName(){
     return mealName;
 }
 
-Meal::Meal(int _mealCarbs, int _mealProteins, int _mealFats)
-{
+Meal::Meal(int _mealCarbs, int _mealProteins, int _mealFats){
     carbohydrates.resize(_mealCarbs);
     proteins.resize(_mealProteins);
     fats.resize(_mealFats);

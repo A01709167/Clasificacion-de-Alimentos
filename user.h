@@ -34,7 +34,8 @@ public:
     void setGoal(string _goal);
     void setIncrement(double _increment);
     void setSplit(array<double, 3> _split);
-    void setPlan(Plan _plan);
+
+    Plan setPlan(int numberOfMeals); //porque un plan se inicializa con el number of meals, y los demás con getters
 
     //getters
     double getHeight();
@@ -45,7 +46,7 @@ public:
     double getDeficit();
     double getBulk();
     string getGoal();
-    array<double, 3> getSplit(array <double,3>);
+    array<double, 3> getSplit();
     Plan getPlan();
 
     //METHODS
