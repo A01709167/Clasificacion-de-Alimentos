@@ -36,8 +36,6 @@ int main(){
     Anna.askGoal();
     Plan plan1(Anna.getCalories(), "Plan to gain weight", {50, 30, 20}, 5);
     Anna.setPlan(plan1);
-    plan1.setMeals(5);
-    plan1.showPlan();
     std::cout<<"enddd"<<endl;
     return 0;
 };

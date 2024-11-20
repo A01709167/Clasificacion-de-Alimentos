@@ -9,22 +9,33 @@ private:
     string planName;
     string mealName;
     string time;
+
     int carbs;
     int proteins;
     int fats;
-    std::array<int, 5> equalMeal;
-    std::array<int, 3> mealMatrix;
+//Here meal has foods, but we don't know how many !!!!
 
 public:
     // Constructor
-    Meal(string _planName, string _mealName, string _time);
+    Meal(int _carbs, int _proteins, int _fats);
 
     // Methods
     void setName(string _name);
+    string getMealName();
+
     void setTime(std::string _time);
-    void setEqualMeal(std::array<int, 3> _equalmeal); //Divide las porciones equitativamente en la cantidad de comidas siendo la cena la última
-    void editCarbs(int carbs);
-    void editProteins(int proteins);
-    void editFats(int fats);
-    void showMeal();
+    string getTime();
+
+    void setCarbs(int _carbs);
+    void setProteins(int _proteins);
+    void setFats(int _fats);
+    
+
+    int getCarbPortions();
+    int getFatsPortions();
+    int getProteinPortions();
+
+    std::vector<int> setBaseMeals(int _numberOfMeals);
+
+    string showMeal();
 };

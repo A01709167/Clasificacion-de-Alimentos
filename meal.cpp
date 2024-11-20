@@ -1,16 +1,23 @@
 #include "meal.h"
 #include "user.h"
+#include "food.h"
 #include "plan.h"
+using namespace std;
+#include <string>
+
 
 void Meal::setName(string _mealName){
     mealName = _mealName;
 }
+string Meal:: getMealName(){
+    return mealName;
+}
 
-Meal::Meal(string _planName, string _mealName, string _time)
+Meal::Meal(int _carbs, int _proteins, int _fats)
 {
-    planName = _planName;
-    mealName = _mealName;
-    time = _time;
+    carbs = _carbs;
+    proteins = _proteins;
+    fats = _fats;
 }
 
 void Meal::setTime(string _time)
@@ -19,16 +26,48 @@ void Meal::setTime(string _time)
     // Sólo dice la hora en la que se comerá (mañana, tarde)
 }
 
-void Meal::setEqualMeal(std::array<int, 3> _equalMeal) {
-    equalMeal= _equalMeal;
+string Meal::getTime()
+{
+    return time;
 }
 
-void Meal::editCarbs(int carbs) {
-    // Allows you to add or take carbs from the specific meal object
+void Meal::setCarbs(int _carbs)
+{
+    carbs  =_carbs;
 }
-void Meal::editProteins(int proteins) {
-    // idem
+
+void Meal::setProteins(int _proteins)
+{
+    proteins = _proteins;
 }
-void Meal::editFats(int fats) {
-    
+
+void Meal::setFats(int _fats)
+{
+    fats = _fats;
+}
+
+
+int Meal::getCarbPortions()
+{
+    return carbs;
+}
+
+int Meal::getFatsPortions()
+{
+    return fats;
+}
+
+int Meal::getProteinPortions()
+{
+    return proteins;
+}
+
+
+string Meal::showMeal()
+{
+    string meal = getMealName() + " " + getTime() + 
+              "\nCarbs: " + std::to_string(getCarbPortions()) + 
+              "\nProteins: " + std::to_string(getProteinPortions()) + 
+              "\nFats: " + std::to_string(getFatsPortions());
+    return string();
 }
