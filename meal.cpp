@@ -13,17 +13,16 @@ string Meal:: getMealName(){
     return mealName;
 }
 
-Meal::Meal(int _carbs, int _proteins, int _fats)
+Meal::Meal(int _mealCarbs, int _mealProteins, int _mealFats)
 {
-    carbs = _carbs;
-    proteins = _proteins;
-    fats = _fats;
+    carbohydrates.resize(_mealCarbs);
+    proteins.resize(_mealProteins);
+    fats.resize(_mealFats);
 }
 
 void Meal::setTime(string _time)
 {
     time = _time;
-    // Sólo dice la hora en la que se comerá (mañana, tarde)
 }
 
 string Meal::getTime()
@@ -31,35 +30,19 @@ string Meal::getTime()
     return time;
 }
 
-void Meal::setCarbs(int _carbs)
-{
-    carbs  =_carbs;
-}
-
-void Meal::setProteins(int _proteins)
-{
-    proteins = _proteins;
-}
-
-void Meal::setFats(int _fats)
-{
-    fats = _fats;
-}
-
-
 int Meal::getCarbPortions()
 {
-    return carbs;
+    return mealCarbs;
 }
 
 int Meal::getFatsPortions()
 {
-    return fats;
+    return mealFats;
 }
 
 int Meal::getProteinPortions()
 {
-    return proteins;
+    return mealProteins;
 }
 
 

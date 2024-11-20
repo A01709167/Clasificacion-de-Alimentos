@@ -2,6 +2,10 @@
 #include <iostream>
 using namespace std;
 #include "plan.h"
+#include <vector>
+#include "fats.h"
+#include "carbohydrate.h"
+#include "protein.h"
 
 // Class representing an individual meal
 class Meal : public Plan {
@@ -10,32 +14,31 @@ private:
     string mealName;
     string time;
 
-    int carbs;
-    int proteins;
-    int fats;
+    int mealCarbs;
+    int mealProteins;
+    int mealFats;
+
+    std::vector <Protein> proteins;
+    std::vector <Fats> fats;
+    std::vector <Carbohydrate> carbohydrates;
+
 //Here meal has foods, but we don't know how many !!!!
 
 public:
     // Constructor
-    Meal(int _carbs, int _proteins, int _fats);
+    Meal(int _mealCarbs, int _mealProteins, int _mealFats);
 
-    // Methods
+    //GETTERS
     void setName(string _name);
     string getMealName();
 
     void setTime(std::string _time);
     string getTime();
 
-    void setCarbs(int _carbs);
-    void setProteins(int _proteins);
-    void setFats(int _fats);
-    
-
     int getCarbPortions();
     int getFatsPortions();
     int getProteinPortions();
 
-    std::vector<int> setBaseMeals(int _numberOfMeals);
-
+    // Methods
     string showMeal();
 };

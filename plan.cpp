@@ -4,12 +4,11 @@
 using namespace std;
 #include <string>
 
-Plan::Plan(double planCalories, string _planName, std::array<double, 3> _split, int _numberOfMeals){
-    planName = _planName;
+Plan::Plan(double planCalories, std::array<double, 3> _split, int _numberOfMeals){
     split = _split;
     numberOfMeals = _numberOfMeals;// Sets the number of meals per day, example 5
+    meals.resize(_numberOfMeals);
 }
-
 
 void Plan::setPlanCalories(double _planCalories)
 {
@@ -54,45 +53,36 @@ int Plan::getFats()
     return fats;
 }
 
-Meal Plan::getEqualMeal()
-{
-    return meal1;
-    return meal2;
-    return meal3;
-    return meal4;
-    return meal5;
-}
 
 void Plan::showPlan(){
-    std::cout << "Meal distribution:\n";
-    for (int i = 0; i < numberOfMeals; ++i) {
-        std::cout << "Meal " << i + 1 << ": " << mealCarbs[i] << " carbs, "<< mealProteins[i] << " proteins, "<< mealFats[i] << " fats\n";
-    };
+
 }
 
-Meal Plan::setEqualMeal(int _numberOfMeals){
-    setMacros();
+std::vector<Meal> Plan::setMeals(){
     int numberOfMeals = getNumberofMeals();
-    int carbs = 12; // Example total value
-    int proteins = 9; 
-    int fats = 5; 
+    int carbs = getCarbs();
+    int proteins = getProteins();
+    int fats = getFats();
 
-   
-    std::vector<int> mealCarbs{5, carbs / numberOfMeals};
-    std::vector<int> mealProteins{5, proteins / numberOfMeals};
-    std::vector<int> mealFats{5, fats / numberOfMeals};
+    int baseCarbs = carbs / numberOfMeals;
+    int baseProteins = proteins / numberOfMeals;
+    int baseFats = fats / numberOfMeals;
 
-    for (int i = 0; i < carbs % 5; ++i) {
-        mealCarbs[i]++;
+    int extraCarbs = carbs % numberOfMeals;
+    int extraProteins = proteins % numberOfMeals;
+    int extraFats = fats % numberOfMeals;
+
+    for (int i = 0; i < numberOfMeals; ++i){
+        
+        int mealCarbs = baseCarbs + (i < extraCarbs ? 1 : 0);
+        int mealProteins = baseProteins + (i < extraProteins ? 1 : 0);
+        int mealFats = baseFats + (i < extraFats ? 1 : 0);
+        meals.emplace_back(mealCarbs, mealProteins, mealFats);
     }
-    for (int i = 0; i < proteins % 5; ++i) {
-        mealProteins[i]++;
-    }
-    for (int i = 0; i < fats % 5; ++i) {
-        mealFats[i]++;
-    };
     std::cout<<"Meals set correctly "<<endl;
-    Meal meal1(mealCarbs[0], mealProteins[0], mealFats[0]);
 }
 
-
+std::vector<Meal> Plan::getMeals()
+{
+    return meals;
+}

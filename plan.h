@@ -11,6 +11,8 @@ using namespace std;
 
 class Plan {
 private:
+    std::vector<Meal> meals; //A PLAN HAS MEALS
+
     string planName;
     int numberOfMeals;
     double planCalories;
@@ -18,40 +20,36 @@ private:
     int carbs;
     int proteins;
     int fats;
+        
+    int baseCarbs;
+    int baseProteins;
+    int baseFats;
 
-    vector<double> mealCarbs;
-    vector<double> mealFats;
-    vector<double> mealProteins;
+    int extraCarbs;
+    int extraProteins;
+    int extraFats; 
     
-    std::array<double,3> split; //carbs, proteins, fats percentage
-    std::array<Meal, 5> mealMatrix;
+    std::array<double,3> split; //carbs, proteins, fats percentage 
 
-    Meal meal1;
-    Meal meal2;
-    Meal meal3;
-    Meal meal4;
-    Meal meal5;
-
-    
 
 public:
     // Constructor
-    Plan();
-    Plan(double _planCalories, string _planName, std::array<double, 3> _split, int _numberOfMeals);
+    Plan(double _planCalories, std::array<double, 3> _split, int _numberOfMeals);
 
-    // Methods
-    void setPlanCalories(double _calories);
-    std::vector<int> setMeals(int _numberOfMeals);
-    void setMacros();
-
+    //GETTERS
     int getNumberofMeals();
     int getCarbs();
     int getProteins();
     int getFats();
 
-    Meal setEqualMeal(int _numberOfMeals);
-    Meal getEqualMeal();
+    // Methods
+    void setPlanCalories(double _calories); //done
+    void setMacros(); //done, returns int carb, proteins and fats for the whole plan
 
+
+    std::vector<Meal> setMeals();
+
+    std::vector<Meal> getMeals();
 
     void showPlan();
 
