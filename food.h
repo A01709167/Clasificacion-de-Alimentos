@@ -15,7 +15,7 @@ protected:
     string group; // what group does the food belongs to
 
 public:
-    Food();
+    Food(): name("FOOD"), carbs(0), proteins(0), fats(0), portionSize(0), group("Not defined"){}
     Food(string _name, double _calories, double _carbs, double _proteins, double _fats);
     string getName();
     double getCalories(); 

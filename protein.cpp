@@ -1,12 +1,4 @@
 #include "Protein.h"
-#include <iomanip> // Formatting
-#include <sstream> // For formatting
-
-std::string formatDouble(double value) {
-    std::ostringstream out;
-    out << std::fixed << std::setprecision(2) << value;
-    return out.str();
-}
 
 //SETTERS AND GETTERS
 
@@ -46,7 +38,11 @@ bool Protein::getEnough()
     return enough;
 }
 
-//METHODS
+Protein::Protein(string _name, double _calories, double _carbs, double _proteins, double _fats)
+: Food(_name, _calories, _carbs, _proteins, _fats){
+}
+
+// METHODS
 bool Protein::isEnough()
 { //Says if the food has enough protein to mantain health which is between 10 and 35 per 100 g
     double protein = getProteins();
@@ -69,7 +65,7 @@ bool Protein::isLean() {
 
 string Protein::show(string proteinType) {
     // Shows the nutritional values of said protein
-    std::string message = getName() + " has:\n " + " " + formatDouble(getCalories())+" calories \n"+ " " +formatDouble(getProteins()) + " proteins\n" + " " +formatDouble(getFats()) + " fats\n" + " " +formatDouble(getLean()) +" lean" +" and "+formatDouble(isEnough())+" enough.";
+    std::string message = getName() + " has:\n " + " " + to_string(getCalories())+" calories \n"+ " " +to_string(getProteins()) + " proteins\n" + " " +to_string(getFats()) + " fats\n" + " " +to_string(getLean()) +" lean" +" and "+to_string(isEnough())+" enough.";
     return message;
     return {}; // Placeholder return
 }

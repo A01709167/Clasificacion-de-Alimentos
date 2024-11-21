@@ -5,12 +5,6 @@ using namespace std;
 #include <iomanip> // Formatting
 #include <sstream> // For formatting
 
-std::string formatDouble(double value) {
-    std::ostringstream out;
-    out << std::fixed << std::setprecision(2) << value;
-    return out.str();
-}
-
 
 Food::Food(string _name, double _calories, double _carbs, double _proteins, double _fats){
     name = _name;
@@ -73,7 +67,7 @@ double Food::portion()
 }
 
 std::string Food::showFood(){
-    std::string message = getName() + " has:\n " + " " + formatDouble(getCalories())+" calories \n"+ " " +formatDouble(getProteins()) + " proteins\n" + " " +formatDouble(getCarbs()) + " carbs\n" + " " +formatDouble(getFats()) +" fats";
+    std::string message = getName() + " has:\n " + " " + to_string(getCalories())+" calories \n"+ " " +to_string(getProteins()) + " proteins\n" + " " +to_string(getCarbs()) + " carbs\n" + " " +to_string(getFats()) +" fats";
     return message; //Regresa la lista de la información nutricional ingresada del alimento
 }
 

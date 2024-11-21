@@ -1,13 +1,18 @@
 #include <iostream>
-#include "carbohydrate.cpp"
-#include "food.cpp"
-#include "fats.cpp"
+
 #include "user.cpp"
 #include "plan.cpp"
+#include "meal.cpp"
+#include "food.cpp"
+#include "carbohydrate.cpp"
+#include "protein.cpp"
+#include "fats.cpp"
+
 using namespace std;
 
 int main(){
     cout << "Bienvenido al protrama de Alimentacion Balanceada"<<std::endl;
+    /*
     Food apple("Manzanita", 55.00, 90.00, 3.00, 2.00);
     //Show Food
     std::cout<< apple.showFood()<<endl;
@@ -31,10 +36,12 @@ int main(){
     std::cout<<mayonnaise.getName()<<" is "<<mayonnaise.whatType() <<std::endl;
     
 //USER
+    //User Anna(Gender, Age, Weight, Height)
     User Anna("Female", 23, 60, 170);
     std::cout<<"User is working. Calories is "<<Anna.findMaintenance()<<Anna.findBulkCals()<<Anna.findDeficitCals()<<endl;
     Anna.askGoal();
-
-
+    //Anna.setPlan(5); //set Plan recieves the ammount of meals the user wants to have
+    */
+    
     return 0;
 };

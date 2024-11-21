@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <array>
-
+#include "meal.h"
 #ifndef PLAN_H
 #define PLAN_H
 
@@ -14,8 +14,8 @@ private:
     std::vector<Meal> meals; //A PLAN HAS MEALS
 
     string planName;
-    int numberOfMeals;
     double planCalories;
+    int numberOfMeals;
 
     int carbs;
     int proteins;
@@ -39,13 +39,11 @@ public:
     Plan(double _planCalories, std::array<double, 3> _split, int _numberOfMeals);
 
     //GETTERS
-    int getNumberofMeals();
     int getCarbs();
     int getProteins();
     int getFats();
 
     // Methods
-    void setPlanCalories(double _calories); //done
     void setMacros(); //done, returns int carb, proteins and fats for the whole plan
 
 

@@ -6,8 +6,7 @@ User::User(string _genre, int _age, double _weight, double _height){
     genre = _genre;
     age = _age;
     weight = _weight;
-    height = _height;
-    userPlan = setPlan(userPlan.getNumberofMeals());
+    height = _height;    
 }
 
 void User::setName(string _name) {
@@ -39,11 +38,13 @@ void User::setGoal(string _goal) {
 void User::setIncrement(double _increment){
     increment=_increment;
 }
+
+//Methods
 Plan User::setPlan(int numberOfMeals){ //Falta definir the user plan
     goal = getGoal(); //defino según la meta
     double calories = getCalories();
     std::array<double, 3> split = getSplit();
-    //Probando nada más con maintenance
+    
     Plan userPlan(calories, split, numberOfMeals);
     return userPlan;
 };

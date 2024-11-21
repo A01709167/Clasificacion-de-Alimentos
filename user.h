@@ -16,9 +16,11 @@ private:
     double deficit;
     double bulk;
     string goal;
-    array<double, 3> split; // Percentage split for carbs, proteins, fats
+    array<double, 3> split; // Percentage split for carbs, proteins, fats (in that order)
     double increment;
-    Plan userPlan;
+    int numberOfMeals;
+    Plan userPlan = setPlan(numberOfMeals);
+    
 
 public:
     // Constructor
@@ -35,7 +37,7 @@ public:
     void setIncrement(double _increment);
     void setSplit(array<double, 3> _split);
 
-    Plan setPlan(int numberOfMeals); //porque un plan se inicializa con el number of meals, y los demás con getters
+    
 
     //getters
     double getHeight();
@@ -46,6 +48,7 @@ public:
     double getDeficit();
     double getBulk();
     string getGoal();
+
     array<double, 3> getSplit();
     Plan getPlan();
 
@@ -54,6 +57,8 @@ public:
     double findMaintenance();
     double findBulkCals();
     double findDeficitCals();
+    //A plan has (calories, split and number of meals), we initialize a plan only with the number of meals as the others come from the users info.
+    Plan setPlan(int numberOfMeals); //porque un plan se inicializa con el number of meals, y los demás con getters
 
 };
 

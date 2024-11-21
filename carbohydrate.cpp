@@ -1,5 +1,6 @@
 #include "carbohydrate.h"
 using namespace std;
+
 Carbohydrate::Carbohydrate(string _name, double _calories, double _carbs, double _proteins, double _fats, double _sugar, double _fiber)
     : Food(_name, _calories, _carbs, _proteins, _fats) {
     sugar = _sugar;
@@ -17,7 +18,14 @@ string Carbohydrate::getType(){
     return type;
 }
 
-//Setter
+void Carbohydrate::setSugar(double _sugar){
+    sugar = _sugar;
+}
+void Carbohydrate::setFiber(double _fiber){
+    fiber = _fiber;
+}
+
+// Setter
 void Carbohydrate::setType(string _type){
     type = _type;
 };
@@ -41,3 +49,4 @@ std::vector<std::string> Carbohydrate::show(const std::string& options) {
     // Displays a list of all the foods that the user has entered which are carbs
     return {}; // Returns a vector of all the possible options for carbohydrates
 }
+

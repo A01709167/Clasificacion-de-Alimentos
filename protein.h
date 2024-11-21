@@ -6,8 +6,14 @@
 #include <vector>
 #include "food.h"
 
+
 class Protein: public Food {
 private:
+    string name;
+    double calories;
+    double carbs; 
+    double proteins;
+    double fats;
     std::string base;
     std::string type;
     bool lean;
@@ -15,7 +21,8 @@ private:
 
 public:
     //CONSTRUCTOR
-    Protein::Protein(string _name, double _calories, double _carbs, double _proteins, double _fats);
+    Protein(): Food(), name("PROTEIN"), calories(45), carbs(0), proteins(0), fats(0), base("ANIMAL/PLANT"), type(0), enough(0) {}
+    Protein(string _name, double _calories, double _carbs, double _proteins, double _fats);
 
     bool isEnough();
     bool isLean();

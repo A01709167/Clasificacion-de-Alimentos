@@ -8,6 +8,11 @@
 
 class Carbohydrate : public Food{
 private:
+    string name;
+    double calories;
+    double carbs; 
+    double proteins;
+    double fats;
     double sugar; //Here we enter the Grams of sugar the food has
     double fiber; //here we enter the GRAMS of Dietary Fiber the food has
     std::string type; //if it's a fruit, vegetable or other
@@ -20,6 +25,8 @@ public:
     double getFiber();
     string getType();
     
+    //CONSTRUCTOR
+    Carbohydrate():Food(), name("CARBOHYDRATE"), calories(77), carbs(100), proteins(0), fats(0), sugar(100), fiber(50)  {}
     Carbohydrate(string _name, double _calories, double _carbs, double _proteins, double _fats, double _sugar, double _fiber);
     bool isHealthy();
     std::vector<std::string> show(const std::string& options); //HOW TO RETRIEVER ALL THE OBJECTS BUILT WITHIN A CLASS?

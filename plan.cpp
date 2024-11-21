@@ -1,22 +1,19 @@
+#include <iostream>
+
 #include "plan.h"
-#include "meal.h"
-#include "meal.cpp"
+#include "meal.h" //BORRE EL CPP DE MEAL
 using namespace std;
 #include <string>
 
 
-
-Plan::Plan(double planCalories, std::array<double, 3> _split, int _numberOfMeals){
+Plan::Plan(double planCalories, std::array<double, 3> _split, int _numberOfMeals)
+{
     split = _split;
     numberOfMeals = _numberOfMeals;// Sets the number of meals per day, example 5
     meals.resize(numberOfMeals);
 }
 
-void Plan::setPlanCalories(double _planCalories){
-    planCalories = _planCalories;
-};
-
-void Plan::setMacros() {
+void Plan::setMacros() { //this comes from the split (in fact, i could've called the split macros)
     
     double total = planCalories;
     double carbPercentage = split[0];
@@ -27,16 +24,12 @@ void Plan::setMacros() {
     int _carbs = (total*carbPercentage)/100;
     int _proteins =(total*proteinPercentage)/100;
 
+    //These are the portions of each macro
     int proteins = _proteins;
     int carbs = _carbs;
     int fats = _fats;
     std::cout<<"Macros portions set succesfully to "<<carbs<<endl;
     // Changes the ammount of proteins
-}
-
-int Plan::getNumberofMeals()
-{
-    return numberOfMeals;
 }
 
 int Plan::getCarbs()
@@ -54,13 +47,9 @@ int Plan::getFats()
     return fats;
 }
 
-
-void Plan::showPlan(){
-
-}
-
-std::vector<Meal> Plan::setMeals(){
-    int numberOfMeals = getNumberofMeals();
+std::vector<Meal> Plan::setMeals(){ //Distributes the macros found before into the number of meals
+    std::vector<Meal> meals;
+    int numberOfMeals = numberOfMeals;
     int carbs = getCarbs();
     int proteins = getProteins();
     int fats = getFats();
@@ -81,9 +70,17 @@ std::vector<Meal> Plan::setMeals(){
         meals.emplace_back(mealCarbs, mealProteins, mealFats); //THIS CREATES several objects type MEAL that recieve the INT of the mealCarbs (the portions, then the meal has to be constructed)
     }
     std::cout<<"Meals set correctly "<<endl;
+    
+    return meals;
 }
 
-std::vector<Meal> Plan::getMeals()
-{
+
+std::vector<Meal> Plan::getMeals(){
     return meals;
+}
+
+void Plan::showPlan(){ //no sale imprimir un vector de meals, recomiendo ir a meal y escribir una funcion de displayMeal
+    for (int i = 0; i < meals.size(); ++i) {
+    std::cout << meals[i].displayMeal()<<std::endl;
+    };
 }
