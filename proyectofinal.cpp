@@ -12,7 +12,7 @@ using namespace std;
 
 int main(){
     cout << "Bienvenido al protrama de Alimentacion Balanceada"<<std::endl;
-    /*
+    
     Food apple("Manzanita", 55.00, 90.00, 3.00, 2.00);
     //Show Food
     std::cout<< apple.showFood()<<endl;
@@ -33,15 +33,17 @@ int main(){
     
 //Fats class
     Fats mayonnaise("mayonnaise", 40.3, 34.3, 34.34, 56.6, 56.7);
-    std::cout<<mayonnaise.getName()<<" is "<<mayonnaise.whatType() <<std::endl;
-    
-//USER
+    std::string message = mayonnaise.getName()+" is "+mayonnaise.whatType();
+    std::cout<< message <<std::endl;
+    //USER
+
     //User Anna(Gender, Age, Weight, Height)
     User Anna("Female", 23, 60, 170);
-    std::cout<<"User is working. Calories is "<<Anna.findMaintenance()<<Anna.findBulkCals()<<Anna.findDeficitCals()<<endl;
-    Anna.askGoal();
-    //Anna.setPlan(5); //set Plan recieves the ammount of meals the user wants to have
-    */
+    std::string annamessage = "User is working. Calories is "+ std::to_string(Anna.findMaintenance())+" Bulk: " +std::to_string(Anna.findBulkCals()) +" Deficit" + std::to_string(Anna.findDeficitCals());
+    std::cout <<"please please please"<<std::endl;
+    Anna.askGoal(); 
+    double calories =Anna.getCalories();
+    std::cout <<std::to_string(calories)<< std::endl;
     
     return 0;
 };

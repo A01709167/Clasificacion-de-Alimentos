@@ -98,6 +98,17 @@ double User::getWeight()
 
 double User::getCalories()
 {
+    findMaintenance();
+    goal = getGoal();
+    if (goal =="Moderate"){
+        calories = findMaintenance();
+    }
+    else if (goal=="Gain Weight"){
+        calories = getBulk();
+    }
+    else if (goal =="Loose weight"){
+        calories = getDeficit();
+    };
     return calories;
 }
 
