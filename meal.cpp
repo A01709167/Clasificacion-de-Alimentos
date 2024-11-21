@@ -5,14 +5,6 @@ using namespace std;
 #include <string>
 
 
-//Me falta construír la meal, añadir las foods
-void Meal::setName(string _mealName){
-    mealName = _mealName;
-}
-string Meal:: getMealName(){
-    return mealName;
-}
-
 Meal::Meal(int _mealCarbs, int _mealProteins, int _mealFats){
     mealCarbs = _mealCarbs;
     mealProteins = _mealProteins;
@@ -20,6 +12,14 @@ Meal::Meal(int _mealCarbs, int _mealProteins, int _mealFats){
     carbohydrates.resize(_mealCarbs);
     proteins.resize(_mealProteins);
     fats.resize(_mealFats);
+    mealName = "Meal example";
+}
+
+void Meal::setName(string _mealName){
+    mealName = _mealName;
+}
+string Meal:: getMealName(){
+    return mealName;
 }
 
 void Meal::setTime(string _time)
@@ -101,7 +101,9 @@ string Meal::showMealFats()
     return message;
 }
 
-string Meal::displayMeal(){   
+string Meal::displayMeal(){ 
+    mealName = getMealName();
+    std::cout<<"Display meal passed"<<mealName<<std::endl;  
     string mealDisplay = "Here's the " + getMealName() +"meal display" +showMealProteins() + "\n" + showMealCarbohydrates() + "\n" + showMealFats();
     return mealDisplay;
 }

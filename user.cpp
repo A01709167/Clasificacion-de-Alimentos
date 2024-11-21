@@ -1,6 +1,8 @@
 // User.cpp
 #include "plan.h"
 #include "user.h"
+#include <cmath>
+
 
 User::User(string _genre, int _age, double _weight, double _height){
     genre = _genre;
@@ -9,12 +11,6 @@ User::User(string _genre, int _age, double _weight, double _height){
     height = _height;    
 }
 
-void User::setName(string _name) {
-    name = _name;
-}
-void User::setGenre(string _genre){
-    genre=_genre;
-}
 void User::setAge(int _age){
     age = _age;
 }
@@ -46,12 +42,13 @@ Plan User::setPlan(int numberOfMeals){ //Falta definir the user plan
     std::array<double, 3> split = getSplit();
     
     Plan userPlan(calories, split, numberOfMeals);
+    std::cout<<"Plan set succesfully, continue with methods"<<std::endl;
     return userPlan;
 };
 
 void User::askGoal(){
     int option;
-    string goal;
+    string _goal;
     double increment;
     string goals [3]={"Maintain weight", "Loose weight", "Gain Weight"};
     string extremes [3]={"Moderate", "High", "Extreme"};
@@ -60,12 +57,12 @@ void User::askGoal(){
         std::cout<<(i+1)<<". "<< goals[i]<<endl;
     }
     std::cin>> (option);
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 4; ++i) {
         if (option==i){
-            goal =goals[i];
+            _goal =goals[i-1];
         };
     };
-    setGoal(goal);
+    setGoal(_goal);
 
     for (int i = 0; i < 3; ++i) {
         std::cout<<(i+1)<<". "<< extremes[i]<<endl;
@@ -73,14 +70,15 @@ void User::askGoal(){
     std::cin>> option;
     for (int i = 0; i < 3; ++i) {
         if (option==i){
-            increment =increments[i];
+            increment =increments[i-1];
         };
     };
     setIncrement(increment);
-    setGoal(goal);
-        std::cout<<"Goal set to "<< goal<<std::endl;
+    setGoal(_goal);
+        std::cout<<"Goal set to "<< _goal<<std::endl;
 
 };
+
 void User::setSplit(std::array<double, 3> _split){
     split = _split;
     //Defines how the user wants to devide the macronutrients
@@ -98,17 +96,20 @@ double User::getWeight()
 
 double User::getCalories()
 {
-    findMaintenance();
+    double _calories;
     goal = getGoal();
-    if (goal =="Moderate"){
-        calories = findMaintenance();
+    if (goal =="Maintain weight"){
+        _calories = findMaintenance();
     }
     else if (goal=="Gain Weight"){
-        calories = getBulk();
+        _calories = getBulk();
     }
     else if (goal =="Loose weight"){
-        calories = getDeficit();
+        _calories = getDeficit();
     };
+    setCalories(_calories);
+    calories = _calories;
+    std::cout<<"Calories set according to goal  "<<goal<<" : "<<calories<<std::endl;//I may erase the checkpoint messages later
     return calories;
 }
 
@@ -145,17 +146,21 @@ Plan User::getPlan(){
 
 
 double User::findMaintenance() {
-    double weight =getWeight();
-    double height =getHeight();
-    int age = getAge();
-    double calories;
+    string genre = "Female"; //getGenre();
+    double weight =70.0;//getWeight();
+    double height =180.0;//getHeight();
+    int age = 30;//getAge();
+    double _calories= 0;
     // Finds the average calories the user most eat. I'm implementing the Mifflin-St Jeor Formula
     if (genre=="Male"){
-        calories = (weight*10) +(6.25*height)-(5*age)-161;
+        _calories = (weight*10) +(6.25*height)-(5*age)-161;
     }
     else if (genre=="Female"){
-        calories = (weight*10) +(6.25*height)-(5*age)+5;
+        _calories = (weight*10) +(6.25*height)-(5*age)+5;
     };
+    calories = std::round(_calories);
+    std::cout<<"calories found succesfully"<<std::endl;
+    std::cout<<calories<<std::endl;
     return calories;
 }
 
@@ -163,7 +168,7 @@ double User::findBulkCals() {
     double weight =getWeight();
     double height =getHeight();
     int age = getAge();
-    double bulk;
+    double _bulk;
     double increment;
     // Finds the average calories the user most eat. I'm implementing the Mifflin-St Jeor Formula
     if (genre=="Male"){
@@ -172,8 +177,9 @@ double User::findBulkCals() {
     else if (genre=="Female"){
         calories = (weight*10) +(6.25*height)-(5*age)+5+200;
     };
-    bulk = calories + calories*0.20; //between 15 and 20% surplus is recommended, may this value get variable in the future
+    _bulk = calories + calories*0.20; //between 15 and 20% surplus is recommended, may this value get variable in the future
     std::cout<<"\nBULK calories FOUND succesfully:  "<<endl;
+    bulk = std::round(_bulk);
     return bulk; // Placeholder return
 }
 
@@ -181,7 +187,7 @@ double User::findDeficitCals() {
     double weight =getWeight();
     double height =getHeight();
     int age = getAge();
-    double bulk;
+    double _deficit;
     // Finds the average calories the user most eat. I'm implementing the Mifflin-St Jeor Formula
     if (genre=="Male"){
         calories = (weight*10) +(6.25*height)-(5*age)-161;
@@ -189,7 +195,8 @@ double User::findDeficitCals() {
     else if (genre=="Female"){
         calories = (weight*10) +(6.25*height)-(5*age)+5+200;
     };
-    deficit = calories - calories*0.20;
+    _deficit = calories - calories*0.20;
+    deficit = std::round(_deficit);
     std::cout<<"\nDEFICIT calories FOUND succesfully:  "<<endl;
     return deficit; // La suma de las calorías normales más lo que quiere subir
 }

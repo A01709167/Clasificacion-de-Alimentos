@@ -26,7 +26,7 @@ public:
     string getType();
     
     //CONSTRUCTOR
-    Carbohydrate():Food(), name("CARBOHYDRATE"), calories(77), carbs(100), proteins(0), fats(0), sugar(100), fiber(50)  {}
+    Carbohydrate();
     Carbohydrate(string _name, double _calories, double _carbs, double _proteins, double _fats, double _sugar, double _fiber);
     bool isHealthy();
     std::vector<std::string> show(const std::string& options); //HOW TO RETRIEVER ALL THE OBJECTS BUILT WITHIN A CLASS?

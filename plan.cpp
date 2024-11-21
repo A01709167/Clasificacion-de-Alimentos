@@ -80,7 +80,9 @@ std::vector<Meal> Plan::getMeals(){
 }
 
 void Plan::showPlan(){ //no sale imprimir un vector de meals, recomiendo ir a meal y escribir una funcion de displayMeal
-    for (int i = 0; i < meals.size(); ++i) {
-    std::cout << meals[i].displayMeal()<<std::endl;
+    std::vector<Meal> _meals = getMeals();
+    for (int i = 0; i < 3; ++i) {//i is less than meals size
+        std::cout << _meals[i].displayMeal()<<std::endl;
     };
+    std::cout<<"Show plan passed"<<std::endl;
 }

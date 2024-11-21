@@ -29,10 +29,10 @@ private:
     std::vector <Carbohydrate> carbohydrates;
 
 public:
-    //Default constructor
-    Meal(): mealCarbs(10), mealProteins(15), mealFats(30){};
     // Constructor
     Meal(int _mealCarbs, int _mealProteins, int _mealFats);
+    //Default constructor
+    Meal(): mealCarbs(10), mealProteins(15), mealFats(30), mealName("EXAMPLE"){};
 
     //GETTERS
     void setName(string _name);

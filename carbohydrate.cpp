@@ -1,6 +1,6 @@
 #include "carbohydrate.h"
 using namespace std;
-
+Carbohydrate::Carbohydrate() : Food(), name("CARBOHYDRATE"), calories(77), carbs(100), proteins(0), fats(0), sugar(100), fiber(50)  {}
 Carbohydrate::Carbohydrate(string _name, double _calories, double _carbs, double _proteins, double _fats, double _sugar, double _fiber)
     : Food(_name, _calories, _carbs, _proteins, _fats) {
     sugar = _sugar;

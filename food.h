@@ -15,7 +15,7 @@ protected:
     string group; // what group does the food belongs to
 
 public:
-    Food(): name(""), calories(0), carbs(0), proteins(0), fats(0), portionSize(0), group("NONE") {}
+    Food();
     //Food(): name("FOOD"), carbs(0), proteins(0), fats(0), portionSize(0), group("Not defined"){}
     Food(string _name, double _calories, double _carbs, double _proteins, double _fats);
     string getName();
@@ -25,6 +25,7 @@ public:
     double getFats();
     double getPortionSize();
     string getGroup();
+    void setName(string _name);
     void setPortionSize(double);
     void setGroup(string); //this value is changed by the program
     double portion();

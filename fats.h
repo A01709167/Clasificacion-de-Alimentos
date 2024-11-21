@@ -20,7 +20,7 @@ private:
 
 public:
     //Constructor
-    Fats(): Food(), name("FAT"), calories(45), proteins(0), fats(0),  saturatedFat(0) {}
+    Fats();
     Fats(string _name, double _calories, double _carbs, double _proteins, double _fats, double _saturatedFat);
 
     //GETTERS

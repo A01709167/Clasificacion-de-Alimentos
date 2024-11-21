@@ -1,6 +1,7 @@
 #include "Protein.h"
 
 //SETTERS AND GETTERS
+Protein::Protein(): Food(), name("PROTEIN"), calories(45), carbs(0), proteins(0), fats(0), base("ANIMAL/PLANT"), type(0), enough(0) {}
 
 void Protein::setBase(string _base){
     base = _base;
