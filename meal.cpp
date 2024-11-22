@@ -102,7 +102,7 @@ string Meal::showMealCarbohydrates()
     int size =getCarbPortions();
     string message="";
     for (int i=1; i< size; i++){
-        message = message +"\n" +carbohydrates[i].getName()+ "  |  Cals: " + to_string(carbohydrates[i].getCalories());     
+        message = message +"\n" +carbohydrates[i].getName()+ "  |  Cals: " + to_string(carbohydrates[i].getCalories())+ "  |  Portion: " + to_string(carbohydrates[i].getPortionSize());     
     };
     return message;
 }

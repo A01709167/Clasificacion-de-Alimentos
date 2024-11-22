@@ -67,7 +67,6 @@ int main(){
     examplePlan.setSplit({30.0, 50.0, 20.0});
     std::cout << examplePlan.showMacros() << std::endl;
     examplePlan.setMeals(); 
-    std::cout<<"SHOW PLAN STARTEDVJKE"<<std::endl;
     std::cout<<examplePlan.showPlan()<<std::endl;
 
     

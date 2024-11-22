@@ -112,10 +112,7 @@ std::vector<Meal> Plan::setMeals(){ //Distributes the macros found before into t
         int mealProteins = baseProteins + (i < extraProteins ? 1 : 0);
         int mealFats = baseFats + (i < extraFats ? 1 : 0);
         _meals[i].setMealMacros(mealCarbs, mealFats, mealProteins); //THIS CREATES several objects type MEAL that recieve the INT of the mealCarbs (the portions, then the meal has to be constructed)
-
-        std::cout<<"Displaying portions\n"<<_meals[i].showMealPortions()<<std::endl;
     }
-    std::cout<<"Set meals ended "<<endl;
     meals = _meals;
     return meals;
 }
