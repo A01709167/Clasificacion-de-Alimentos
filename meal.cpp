@@ -3,6 +3,9 @@
 #include "food.h"
 using namespace std;
 #include <string>
+#include <sstream>
+#include <iomanip>
+
 Meal::Meal(): mealCarbs(10), mealFats(11), mealProteins(12), mealName("MEAL") {}
 Meal::Meal(int _mealCarbs, int _mealProteins, int _mealFats){
     mealCarbs = _mealCarbs;
@@ -88,38 +91,51 @@ string Meal::showMealPortions()
 
 string Meal::showMealProteins()
 {
-    string message="";
-    int size = getProteinPortions();
+    std::ostringstream oss; oss << std::fixed << std::setprecision(1); 
+    std::string message = ""; 
+    int size =getProteinPortions();
+
     for (int i=1; i< size; i++){
-        message = message +"\n"+ proteins[i].getName()+ "  |  Cals: " + to_string(proteins[i].getCalories());     
-    };
+        oss.str(""); oss << proteins[i].getCalories(); 
+        std::string caloriesStr = oss.str(); 
+        message += proteins[i].getName()+" | Cals: " + caloriesStr + "\n"; 
+        }
     return message;
    
 }
 
 string Meal::showMealCarbohydrates()
 {
+    std::ostringstream oss; 
+    oss << std::fixed << std::setprecision(1); 
     int size =getCarbPortions();
     string message="";
     for (int i=1; i< size; i++){
-        message = message +"\n" +carbohydrates[i].getName()+ "  |  Cals: " + to_string(carbohydrates[i].getCalories())+ "  |  Portion: " + to_string(carbohydrates[i].getPortionSize());     
+        oss.str(""); oss << carbohydrates[i].getCalories(); 
+        std::string caloriesStr = oss.str(); 
+        message += carbohydrates[i].getName()+" | Cals: " + caloriesStr + "\n"; 
     };
     return message;
 }
 
 string Meal::showMealFats()
 {
+    std::ostringstream oss; 
+    oss << std::fixed << std::setprecision(1); 
     int size =getFatsPortions();
     string message="";
     for (int i=1; i< size; i++){
-        message = message +"\n" +fats[i].getName()+ "  |  Cals: " + to_string(fats[i].getCalories());     
+        oss.str(""); oss << fats[i].getCalories(); 
+        std::string caloriesStr = oss.str(); 
+        message += fats[i].getName()+" | Cals: " + caloriesStr + "\n"; 
     };
     return message;
 }
 
 string Meal::displayMeal(){ 
-    mealName = getMealName();
-    string mealDisplay = "Foods of " + getMealName() +":" +"\n- Proteins:" +showMealProteins() + "\n\n- Carbohydrates: " + showMealCarbohydrates() + "\n\n- Fats: " + showMealFats();
+    std::ostringstream oss; 
+    oss << std::fixed << std::setprecision(1);
+    string mealDisplay = "Foods of " + getMealName() +":" +"\n- Proteins:\n" +showMealProteins() + "\n\n- Carbohydrates: \n" + showMealCarbohydrates() + "\n\n- Fats: \n" + showMealFats();
     mealDisplay += "\n-------------";
     return mealDisplay;
 }
