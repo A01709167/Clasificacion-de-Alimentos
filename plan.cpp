@@ -193,7 +193,7 @@ void Plan::showPlanMeals()
     int numberOfMeals = getNumberOfMeals();
     string message = "";
     for (int i = 0; i < numberOfMeals; ++i) {//i is less than meals size
-        message =message + "Showing: " + meals[i].getMealName()+"\nCarbs:\n"+meals[i].showMealCarbohydrates()+"\nProteins:\n"+meals[i].showMealProteins()+"\nFats:\n"+meals[i].showMealFats();
+        message =message + "\n----------\nShowing: " + meals[i].getMealName()+"\nCarbs:\n"+meals[i].showMealCarbohydrates()+"\nProteins:\n"+meals[i].showMealProteins()+"\nFats:\n"+meals[i].showMealFats();
     };
     std::cout<<message<<std::endl;
     std::cout<<"Show Plan ended"<<std::endl;

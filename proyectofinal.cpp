@@ -67,11 +67,13 @@ int main(){
     examplePlan.setSplit({30.0, 50.0, 20.0});
     std::cout << examplePlan.showMacros() << std::endl;
     examplePlan.setMeals(); 
-    examplePlan.setMealsNames(1, "breakfast");
+    examplePlan.setMealsNames(0, "breakfast");
     
  
     Carbohydrate oreo("oreo", 170, 25, 1, 7, 14, 0.5);
     examplePlan.insertMealCarb(2, 2, oreo);
+    examplePlan.insertMealCarb(0, 2, oreo);
+    examplePlan.insertMealCarb(1, 2, oreo);
     std::cout<<examplePlan.showPlan()<<std::endl;
     examplePlan.showPlanMeals();
 
