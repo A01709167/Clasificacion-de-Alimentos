@@ -90,8 +90,16 @@ std::array<double, 3> Plan::getSplit()
     return split;
 }
 
-std::vector<Meal> Plan::setMeals(){ //Distributes the macros found before into the number of meals
-  
+void Plan::setMealsNames(vector<string> _mealsNames)
+{
+    int number = getNumberOfMeals();
+    std::vector<std::string> mealsNames(number);
+    mealsNames = _mealsNames;
+}
+
+std::vector<Meal> Plan::setMeals()
+{ // Distributes the macros found before into the number of meals
+    vector<string> names = getMealsNames();
     int numberOfMeals = getNumberOfMeals();
     int carbs = getCarbs();
     int proteins = getProteins();
@@ -111,12 +119,12 @@ std::vector<Meal> Plan::setMeals(){ //Distributes the macros found before into t
         int mealCarbs = baseCarbs + (i < extraCarbs ? 1 : 0);
         int mealProteins = baseProteins + (i < extraProteins ? 1 : 0);
         int mealFats = baseFats + (i < extraFats ? 1 : 0);
-        _meals[i].setMealMacros(mealCarbs, mealFats, mealProteins); //THIS CREATES several objects type MEAL that recieve the INT of the mealCarbs (the portions, then the meal has to be constructed)
+        _meals[i].setMealMacros(mealCarbs, mealFats, mealProteins);
+        _meals[i].setName(mealsNames[i]);
     }
     meals = _meals;
     return meals;
 }
-
 
 std::vector<Meal> Plan::getMeals(){
     return meals;
@@ -153,4 +161,9 @@ void Plan::showPlanMeals()
     };
     
     std::cout<<"Show Plan ended"<<std::endl;
+}
+
+vector<string> Plan::getMealsNames()
+{
+    return mealsNames;
 }

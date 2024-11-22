@@ -12,6 +12,7 @@ using namespace std;
 class Plan {
 private:
     std::vector<Meal> meals; //A PLAN HAS MEALS
+    std::vector<string> mealsNames;
 
     string planName;
     double planCalories;
@@ -55,6 +56,7 @@ public:
     void setProteinPortions(int _proteins);
     void setFatsPortions(int _fats);
 
+    void setMealsNames(vector<string>);
     std::vector<Meal> setMeals();
 
     std::vector<Meal> getMeals();
@@ -62,6 +64,8 @@ public:
 
     string showPlan();
     void showPlanMeals();
+    vector<string> getMealsNames();
+
 
 };
 

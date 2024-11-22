@@ -58,8 +58,8 @@ int main(){
     */
 
     //meal works
-    Meal someMeal(20,30,50);
-    std::cout<<someMeal.displayMeal()<<std::endl;
+    //Meal someMeal(20,30,50);
+    //std::cout<<someMeal.displayMeal()<<std::endl;
 
     Plan examplePlan(5000, {30, 50, 20}, 5);
     
@@ -68,10 +68,7 @@ int main(){
     std::cout << examplePlan.showMacros() << std::endl;
     examplePlan.setMeals(); 
     std::cout<<examplePlan.showPlan()<<std::endl;
+    std::vector<Meal> exampleMeals =examplePlan.getMeals();    
 
-    
-    
-
-    
     return 0;
 };
