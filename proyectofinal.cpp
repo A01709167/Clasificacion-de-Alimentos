@@ -80,7 +80,7 @@ Fats createFats(Food _food){
         Fats _fat( name,  calories, carbs, proteins, fats, saturatedFat);
         return _fat;
     };
-    
+
 int newFood(){
      Food _food= createFood();
     string group = _food.getGroup();
@@ -95,6 +95,51 @@ int newFood(){
     };
     return 0;
 }
+
+#include <iostream>
+#include <limits>
+#include "user.h"
+
+User createUser() {
+    std::string _genre;
+    string genre;
+    int age;
+    double weight, height;
+    int opcion;
+
+    std::cout << "Enter genre: Male [m] | Female [f]";
+    std::getline(std::cin, _genre);
+    if(_genre=="f"){
+        genre = "Female";
+    }
+    else if (_genre=="m"){
+        genre="Male";
+    };
+
+    std::cout << "Enter age: ";
+    std::cin >> age;
+
+    std::cout << "Enter weight (kg): ";
+    std::cin >> weight;
+
+    std::cout << "Enter height (cm): ";
+    std::cin >> height;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    User mainUser(genre, age, weight, height);
+    return mainUser;
+}
+
+Plan createPlan(User mainUser){
+    double planCalories = mainUser.getCalories();
+    mainUser.askGoal();
+    int numberOfMeals;
+    std::array<double, 3> _split=mainUser.getSplit();
+    std::cout << "Enter number of meals (e.g 5): ";
+    std::cin >> numberOfMeals;
+    Plan mainPlan(planCalories, _split, numberOfMeals);
+    return mainPlan;
+}
+
 
 int main(){
     /*
