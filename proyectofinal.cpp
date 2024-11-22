@@ -10,6 +10,66 @@
 
 using namespace std;
 
+Food createFood() {
+    std::string name;
+    double calories, carbs, proteins, fats;
+
+    std::cout << "Enter food name: ";
+    std::getline(std::cin, name);
+
+    std::cout << "Enter calories: ";
+    std::cin >> calories;
+
+    std::cout << "Enter carbs: ";
+    std::cin >> carbs;
+
+    std::cout << "Enter proteins: ";
+    std::cin >> proteins;
+
+    std::cout << "Enter fats: ";
+    std::cin >> fats;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    Food _food(name, calories, carbs, proteins, fats);
+    _food.defineGroup();
+    string group = _food.getGroup();
+    std::cout<<"Your food belongs to the "<<group<<std::endl;
+    return _food;
+}
+
+Food* createMacroFood(){
+    Food _food = createFood();
+    string group = _food.getGroup();
+    string name = _food.getName();
+    double calories = _food.getCalories();
+    double carbs = _food.getCarbs();
+    double fats = _food.getFats();
+    double proteins = _food.getProteins();
+    if (group == "Carb"){
+        double sugar, fiber;
+        std::cout << "Enter fats: "; 
+        std::cin >> fats; 
+        std::cout << "Enter sugar: "; 
+        std::cin >> sugar; 
+        std::cout << "Enter fiber: "; 
+        std::cin >> fiber;
+        Carbohydrate _carbohydrate( name,  calories, carbs, proteins, fats, sugar, fiber);
+        return _carbohydrate;
+    }
+    else if (group =="Protein"){
+        Protein _protein(name, calories, carbs, proteins, fats);
+        return _protein;
+    }
+    else if (group =="Fat"){
+        double saturatedFat;
+        std::cout << "Enter saturatedFat: "; 
+        std::cin >> saturatedFat;
+        Fats _fat( name,  calories, carbs, proteins, fats, saturatedFat);
+        return _fat;
+    };
+
+}
+
+
 int main(){
     /*
     cout << "Bienvenido al protrama de Alimentacion Balanceada"<<std::endl;
@@ -55,7 +115,7 @@ int main(){
     //ANTES DE PLAN Antes de intentar esto, arreglar meal annaplan
     //Plan annaplan = Anna.getPlan();
     //.showPlan();
-    */
+    
 
     //meal works
     //Meal someMeal(20,30,50);
@@ -77,7 +137,8 @@ int main(){
     examplePlan.insertMealCarb(1, 2, oreo);
     std::cout<<examplePlan.showPlan()<<std::endl;
     examplePlan.showPlanMeals();
+*/
 
-    
+    createFood();
     return 0;
 };

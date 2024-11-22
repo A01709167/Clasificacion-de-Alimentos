@@ -4,15 +4,8 @@ using namespace std;
 
 #include <iomanip> // Formatting
 #include <sstream> // For formatting
-
-Food::Food(): name("Name"), calories(500.0), carbs(10.0), proteins(20.0), fats(30.0), portionSize(333), group("NONE") {}
-Food::Food(string _name, double _calories, double _carbs, double _proteins, double _fats){
-    name = _name;
-    calories = _calories;
-    carbs = _carbs;
-    proteins = _proteins;
-    fats = _fats;
-}
+#include <iostream>
+#include "food.h"
 
 //Setters and getters
 void Food::setGroup(string _group){
