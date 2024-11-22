@@ -1,7 +1,7 @@
 #include "Protein.h"
 
 //SETTERS AND GETTERS
-Protein::Protein(): Food(), name("PROTEIN"), calories(45), carbs(0), proteins(0), fats(0), base("ANIMAL/PLANT"), type(0), enough(0) {}
+Protein::Protein(): Food(), name("PROTEIN"), calories(45), carbs(69), proteins(69), fats(69), base("ANIMAL/PLANT"), type("Type"), enough(false) {}
 
 void Protein::setBase(string _base){
     base = _base;
@@ -64,7 +64,7 @@ bool Protein::isLean() {
     return lean; // 
 }
 
-string Protein::show(string proteinType) {
+string Protein::show() {
     // Shows the nutritional values of said protein
     std::string message = getName() + " has:\n " + " " + to_string(getCalories())+" calories \n"+ " " +to_string(getProteins()) + " proteins\n" + " " +to_string(getFats()) + " fats\n" + " " +to_string(getLean()) +" lean" +" and "+to_string(isEnough())+" enough.";
     return message;

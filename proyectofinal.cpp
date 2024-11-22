@@ -56,12 +56,15 @@ int main(){
     //Plan annaplan = Anna.getPlan();
     //.showPlan();
     */
-    Carbohydrate bread;
-    string breadName = bread.getName();
-    std::cout<< "name is "<<breadName <<std::endl;
-    bread.setName("bread");
-    string secondbreadName = bread.getName();
-    std::cout<< "second name is "<<secondbreadName <<std::endl;
+
+    //meal works
+
+    Plan examplePlan(5000, {30, 50, 20}, 5);
+    
+    examplePlan.setMacros(5000);
+    examplePlan.setSplit({30.0, 50.0, 20.0});
+    std::cout << examplePlan.showMacros() << std::endl;
+    examplePlan.setMeals();
     
     return 0;
 };

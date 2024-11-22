@@ -26,7 +26,7 @@ public:
 
     bool isEnough();
     bool isLean();
-    string show(string proteinValue);
+    string show();
 
     void setBase(string);
     void setType(string);

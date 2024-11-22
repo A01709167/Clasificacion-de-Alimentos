@@ -1,6 +1,6 @@
 #include "fats.h"
 //Constructor
-Fats::Fats(): Food(), name("FAT"), calories(45), proteins(0), fats(0),  saturatedFat(0) {}
+Fats::Fats(): Food(), name("FAT"), calories(45), carbs(0), proteins(0), fats(0),  saturatedFat(0) {}
 Fats::Fats(string _name, double _calories, double _carbs, double _proteins, double _fats, double _saturatedFat):Food(_name, _calories, _carbs, _proteins, _fats){
         saturatedFat = _saturatedFat;
         }
@@ -50,9 +50,9 @@ std::string Fats::whatType(){
     return type;
 }
 
-std::vector<std::string> Fats::show() {
-    // Displays a list of all the foods that the user has entered which are fats
-    return {}; // 
+string Fats::show(){
+    string message = "undefined fat";
+    return message; // 
 }
 
 string Fats::getType()

@@ -13,7 +13,7 @@ using namespace std;
 
 
 // Class representing an individual meal
-class Meal{ //maybe meal doesn't have to inherit that from plan
+class Meal{ 
 private:
     string planName;
     string mealName;
@@ -30,9 +30,10 @@ private:
 
 public:
     // Constructor
+    Meal();
     Meal(int _mealCarbs, int _mealProteins, int _mealFats);
     //Default constructor
-    Meal(): mealCarbs(10), mealProteins(15), mealFats(30), mealName("EXAMPLE"){};
+    //lo borré
 
     //GETTERS
     void setName(string _name);
@@ -55,7 +56,6 @@ public:
     string showMealProteins();
     string showMealCarbohydrates();
     string showMealFats();
-
     string displayMeal();
 };
 

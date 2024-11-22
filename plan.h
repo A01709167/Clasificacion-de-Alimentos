@@ -42,15 +42,18 @@ public:
     int getCarbs();
     int getProteins();
     int getFats();
+    int getNumberOfMeals();
+    std::array<double,3> getSplit();
 
     // Methods
-    void setMacros(); //done, returns int carb, proteins and fats for the whole plan
-
+    void setSplit(std::array<double,3> split);
+    void setMacros(double planCalories); //done, returns int carb, proteins and fats for the whole plan
+    void setNumberOfMeals(int _numberOfMeals);
 
     std::vector<Meal> setMeals();
 
     std::vector<Meal> getMeals();
-
+    string showMacros();
     void showPlan();
 
 };

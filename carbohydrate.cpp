@@ -45,8 +45,8 @@ bool Carbohydrate::isHealthy() {
     return healthy; // If it has too much sugar it says false
 }
 
-std::vector<std::string> Carbohydrate::show(const std::string& options) {
-    // Displays a list of all the foods that the user has entered which are carbs
-    return {}; // Returns a vector of all the possible options for carbohydrates
+string Carbohydrate::show()
+{   string message = "undefined carb";
+    return message;
 }
 

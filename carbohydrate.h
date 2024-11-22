@@ -29,7 +29,7 @@ public:
     Carbohydrate();
     Carbohydrate(string _name, double _calories, double _carbs, double _proteins, double _fats, double _sugar, double _fiber);
     bool isHealthy();
-    std::vector<std::string> show(const std::string& options); //HOW TO RETRIEVER ALL THE OBJECTS BUILT WITHIN A CLASS?
+    string show(); //just shows its info
 };
 
 #endif // CARBOHYDRATE_H

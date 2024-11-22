@@ -3,16 +3,18 @@
 #include "food.h"
 using namespace std;
 #include <string>
-
-
+Meal::Meal(): mealCarbs(50), mealFats(50), mealProteins(50), mealName("MEAL") {}
 Meal::Meal(int _mealCarbs, int _mealProteins, int _mealFats){
     mealCarbs = _mealCarbs;
     mealProteins = _mealProteins;
     mealFats = _mealFats;
+    //THE PROBLEM IS HERE
+    /*
     carbohydrates.resize(_mealCarbs);
     proteins.resize(_mealProteins);
     fats.resize(_mealFats);
-    mealName = "Meal example";
+    */
+    mealName = "no name";
 }
 
 void Meal::setName(string _mealName){
@@ -68,7 +70,7 @@ string Meal::showMealPortions()
               "\nCarbs: " + std::to_string(getCarbPortions()) + 
               "\nProteins: " + std::to_string(getProteinPortions()) + 
               "\nFats: " + std::to_string(getFatsPortions());
-    return string();
+    return meal;
 }
 
 //Maybe I'll add the other info later
@@ -103,7 +105,8 @@ string Meal::showMealFats()
 
 string Meal::displayMeal(){ 
     mealName = getMealName();
-    std::cout<<"Display meal passed"<<mealName<<std::endl;  
-    string mealDisplay = "Here's the " + getMealName() +"meal display" +showMealProteins() + "\n" + showMealCarbohydrates() + "\n" + showMealFats();
+    std::cout<<"Display meal passed "<<mealName<<std::endl;  
+    string mealDisplay = "Foods of " + getMealName() +" meal display:" +"\n- Proteins:" +showMealProteins() + "\n- Carbohydrates: " + showMealCarbohydrates() + "\n- Fats: " + showMealFats();
     return mealDisplay;
 }
+

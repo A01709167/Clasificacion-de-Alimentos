@@ -32,7 +32,7 @@ public:
     void setSaturatedFat(double _saturatedFat);
     //METHODS
     bool isSaturated();
-    std::vector<std::string> show();
+    string show();
     std::string whatType();
 };
 
