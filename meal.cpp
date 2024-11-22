@@ -63,6 +63,21 @@ int Meal::getProteinPortions()
     return mealProteins;
 }
 
+void Meal::setCarbs(vector<Carbohydrate> _carbs)
+{ 
+    carbohydrates=_carbs;
+}
+
+void Meal::setProteins(vector<Protein> _proteins)
+{
+    proteins = _proteins;
+}
+
+void Meal::setFats(vector<Fats> _fats)
+{
+    fats = _fats;
+}
+
 std::vector<Protein> Meal::getProteins()
 {
     return proteins;
@@ -94,11 +109,12 @@ string Meal::showMealProteins()
     std::ostringstream oss; oss << std::fixed << std::setprecision(1); 
     std::string message = ""; 
     int size =getProteinPortions();
+    vector <Protein> proteinv = getProteins();
 
     for (int i=1; i< size; i++){
-        oss.str(""); oss << proteins[i].getCalories(); 
+        oss.str(""); oss << proteinv[i].getCalories(); 
         std::string caloriesStr = oss.str(); 
-        message += proteins[i].getName()+" | Cals: " + caloriesStr + "\n"; 
+        message += proteinv[i].getName()+" | Cals: " + caloriesStr + "\n"; 
         }
     return message;
    
@@ -109,11 +125,12 @@ string Meal::showMealCarbohydrates()
     std::ostringstream oss; 
     oss << std::fixed << std::setprecision(1); 
     int size =getCarbPortions();
+    vector <Carbohydrate> carbs = getCarbohydrates();
     string message="";
     for (int i=1; i< size; i++){
-        oss.str(""); oss << carbohydrates[i].getCalories(); 
+        oss.str(""); oss << carbs[i].getCalories(); 
         std::string caloriesStr = oss.str(); 
-        message += carbohydrates[i].getName()+" | Cals: " + caloriesStr + "\n"; 
+        message += carbs[i].getName()+" | Cals: " + caloriesStr + "\n"; 
     };
     return message;
 }
@@ -123,11 +140,12 @@ string Meal::showMealFats()
     std::ostringstream oss; 
     oss << std::fixed << std::setprecision(1); 
     int size =getFatsPortions();
+    vector <Fats> fatsv = getFats();
     string message="";
     for (int i=1; i< size; i++){
-        oss.str(""); oss << fats[i].getCalories(); 
+        oss.str(""); oss << fatsv[i].getCalories(); 
         std::string caloriesStr = oss.str(); 
-        message += fats[i].getName()+" | Cals: " + caloriesStr + "\n"; 
+        message += fatsv[i].getName()+" | Cals: " + caloriesStr + "\n"; 
     };
     return message;
 }

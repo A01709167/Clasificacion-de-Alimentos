@@ -99,20 +99,40 @@ void Plan::setMealsNames(int opcion, string name)
     meals = _meals;
 }
 
-void Plan::insertMealCarb(int mealI, int carbI, Carbohydrate carb)
-{
+void Plan::insertMealCarb(int mealI, int carbI, Carbohydrate carb) { // Get the vector of meals 
+vector<Meal> _meals = getMeals(); // Get the specific meal 
+Meal _meal = _meals[mealI]; // Get the carbohydrates vector from the meal 
+vector<Carbohydrate> _carbs = _meal.getCarbohydrates(); // Update the specific carbohydrate 
+_carbs[carbI] = carb; // Set the updated carbohydrates vector back to the meal 
+_meal.setCarbs(_carbs); // Update the meal in the meals vector 
+_meals[mealI] = _meal; // Set the updated meals vector back to the Plan 
+meals = _meals; 
+std::cout << "insertMealCarb passed" << std::endl; 
+}
+void Plan::insertMealFat(int mealI, int fatI, Fats fat) {
     vector<Meal> _meals = getMeals();
     Meal _meal = _meals[mealI];
-    vector <Carbohydrate> _carbs = _meal.getCarbohydrates();
-    Carbohydrate _carb = _carbs[carbI];
-    _carb = carb;
-    _carbs[carbI]=_carb;
-    _meals[mealI]=_meal;
+    vector<Fats> _fats = _meal.getFats();
+    _fats[fatI] = fat;
+    _meal.setFats(_fats);
+    _meals[mealI] = _meal;
     meals = _meals;
-    
-    
 
+    std::cout << "insertMealFats passed" << std::endl;
 }
+void Plan::insertMealProteins(int mealI, int proteinI, Protein protein) {
+    vector<Meal> _meals = getMeals();
+    Meal _meal = _meals[mealI];
+    vector<Protein> _proteins = _meal.getProteins();
+    _proteins[proteinI] = protein;
+    _meal.setProteins(_proteins);
+    _meals[mealI] = _meal;
+    meals = _meals;
+
+    std::cout << "insertMealProteins passed" << std::endl;
+}
+
+
 
 std::vector<Meal> Plan::setMeals()
 { // Distributes the macros found before into the number of meals
@@ -171,10 +191,11 @@ void Plan::showPlanMeals()
     std::vector<Meal> meals = getMeals();
     std::cout<<"\n\nSHOW PLAN mealss started: "<<std::endl;
     int numberOfMeals = getNumberOfMeals();
+    string message = "";
     for (int i = 0; i < numberOfMeals; ++i) {//i is less than meals size
-        std::cout<<"Show this meal: " << meals[i].getMealName()<<meals[i].showMealFats()<<std::endl;
+        message =message + "Showing: " + meals[i].getMealName()+"\nCarbs:\n"+meals[i].showMealCarbohydrates()+"\nProteins:\n"+meals[i].showMealProteins()+"\nFats:\n"+meals[i].showMealFats();
     };
-    
+    std::cout<<message<<std::endl;
     std::cout<<"Show Plan ended"<<std::endl;
 }
 

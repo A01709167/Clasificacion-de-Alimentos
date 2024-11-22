@@ -69,7 +69,12 @@ int main(){
     examplePlan.setMeals(); 
     examplePlan.setMealsNames(1, "breakfast");
     
+ 
+    Carbohydrate oreo("oreo", 170, 25, 1, 7, 14, 0.5);
+    examplePlan.insertMealCarb(2, 2, oreo);
     std::cout<<examplePlan.showPlan()<<std::endl;
+    examplePlan.showPlanMeals();
+
     
     return 0;
 };
