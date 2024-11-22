@@ -68,7 +68,7 @@ int main(){
     std::cout << examplePlan.showMacros() << std::endl;
     examplePlan.setMeals(); 
     std::cout<<"SHOW PLAN STARTEDVJKE"<<std::endl;
-    examplePlan.showPlan();
+    std::cout<<examplePlan.showPlan()<<std::endl;
 
     
     

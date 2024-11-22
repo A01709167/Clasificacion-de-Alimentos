@@ -26,13 +26,13 @@ string Meal:: getMealName(){
 }
 
 void Meal::setMealMacros(int _mealCarbs, int _mealFats, int _mealProteins){  
+
     mealProteins = _mealProteins;  
     mealFats = _mealFats;
     mealCarbs = _mealCarbs;
     carbohydrates.resize(mealCarbs);
     proteins.resize(mealProteins);
     fats.resize(mealFats);
-    string tamanoresizeado = to_string(fats.size());
 }
 
 void Meal::setTime(string _time)
@@ -78,9 +78,9 @@ std::vector<Fats> Meal::getFats()
 string Meal::showMealPortions()
 {
     string meal = getMealName() + " " + getTime() + 
-              "\nCarbs: " + std::to_string(getCarbPortions()) + 
-              "\nProteins: " + std::to_string(getProteinPortions()) + 
-              "\nFats: " + std::to_string(getFatsPortions());
+              "\n     -Carbs: " + std::to_string(getCarbPortions()) + 
+              "\n     -Proteins: " + std::to_string(getProteinPortions()) + 
+              "\n     -Fats: " + std::to_string(getFatsPortions());
     return meal;
 }
 
@@ -120,6 +120,7 @@ string Meal::showMealFats()
 string Meal::displayMeal(){ 
     mealName = getMealName();
     string mealDisplay = "Foods of " + getMealName() +":" +"\n- Proteins:" +showMealProteins() + "\n\n- Carbohydrates: " + showMealCarbohydrates() + "\n\n- Fats: " + showMealFats();
+    mealDisplay += "\n-------------";
     return mealDisplay;
 }
 
