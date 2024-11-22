@@ -64,7 +64,6 @@ public:
 
     string showPlan();
     void showPlanMeals();
-    vector<string> getMealsNames();
 
 
 };

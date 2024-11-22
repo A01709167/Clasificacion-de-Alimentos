@@ -67,6 +67,7 @@ int main(){
     examplePlan.setSplit({30.0, 50.0, 20.0});
     std::cout << examplePlan.showMacros() << std::endl;
     examplePlan.setMeals(); 
+    examplePlan.setMealsNames(1, "breakfast");
     
     std::cout<<examplePlan.showPlan()<<std::endl;
     

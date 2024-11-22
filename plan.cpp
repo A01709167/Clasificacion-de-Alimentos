@@ -101,7 +101,6 @@ void Plan::setMealsNames(int opcion, string name)
 
 std::vector<Meal> Plan::setMeals()
 { // Distributes the macros found before into the number of meals
-    vector<string> names = getMealsNames();
     int numberOfMeals = getNumberOfMeals();
     int carbs = getCarbs();
     int proteins = getProteins();
@@ -164,7 +163,3 @@ void Plan::showPlanMeals()
     std::cout<<"Show Plan ended"<<std::endl;
 }
 
-vector<string> Plan::getMealsNames()
-{
-    return mealsNames;
-}
