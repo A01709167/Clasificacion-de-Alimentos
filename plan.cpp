@@ -32,6 +32,10 @@ void Plan::setMacros(double planCalories)
     int carbs = _carbs/77;
     int proteins = _proteins / 70;
     int fats = _fats / 45;
+    setCarbsPortions(carbs);
+    setProteinPortions(proteins);
+    setFatsPortions(fats);
+
 
     //These are the portions of each macro
     
@@ -42,6 +46,18 @@ void Plan::setMacros(double planCalories)
 
 void Plan::setNumberOfMeals(int _numberOfMeals)
 {   numberOfMeals = _numberOfMeals;
+}
+
+void Plan::setCarbsPortions(int _carbs)
+{   carbs= _carbs;
+}
+
+void Plan::setProteinPortions(int _proteins)
+{   proteins = _proteins;
+}
+
+void Plan::setFatsPortions(int _fats)
+{   fats= _fats;
 }
 
 int Plan::getCarbs()
@@ -70,11 +86,13 @@ std::array<double, 3> Plan::getSplit()
 }
 
 std::vector<Meal> Plan::setMeals(){ //Distributes the macros found before into the number of meals
-    std::vector<Meal> meals;
+std::cout<<"set meals started"<<std::endl;
+    
     int numberOfMeals = getNumberOfMeals();
     int carbs = getCarbs();
     int proteins = getProteins();
     int fats = getFats();
+    std::vector<Meal> meals(numberOfMeals, Meal());
 
     int baseCarbs = carbs / numberOfMeals;
     int baseProteins = proteins / numberOfMeals;
@@ -89,7 +107,8 @@ std::vector<Meal> Plan::setMeals(){ //Distributes the macros found before into t
         int mealCarbs = baseCarbs + (i < extraCarbs ? 1 : 0);
         int mealProteins = baseProteins + (i < extraProteins ? 1 : 0);
         int mealFats = baseFats + (i < extraFats ? 1 : 0);
-        meals.emplace_back(mealCarbs, mealProteins, mealFats); //THIS CREATES several objects type MEAL that recieve the INT of the mealCarbs (the portions, then the meal has to be constructed)
+        meals[i].setMealMacros(mealCarbs, mealFats, mealProteins); //THIS CREATES several objects type MEAL that recieve the INT of the mealCarbs (the portions, then the meal has to be constructed)
+        std::cout<<"\n\nSET MEAL ended, displaying portions"<<meals[i].showMealPortions()<<std::endl;
     }
     std::cout<<"Set meals ended "<<endl;
     
@@ -105,15 +124,16 @@ string Plan::showMacros()
 {   string carbs = to_string(getCarbs());
     string proteins = to_string(getProteins());
     string fats = to_string(getFats());
-    string message = "SHOWING MACROS Carbs: "+carbs + "Proteins " + proteins +"Fats: "+ fats;
+    string message = "MACROS \n- Carbs: "+carbs + "  - Proteins " + proteins +"  -Fats: "+ fats;
     return message;
 }
 
 void Plan::showPlan(){ //no sale imprimir un vector de meals, recomiendo ir a meal y escribir una funcion de displayMeal
     std::vector<Meal> _meals = getMeals();
-    int _numberOfMeals = numberOfMeals;
-    for (int i = 0; i < _numberOfMeals; ++i) {//i is less than meals size
-        std::cout << _meals[i].displayMeal()<<std::endl;
+    std::cout<<"\n\nSHOW PLAN started: "<<std::endl;
+    int _numberOfMeals = getNumberOfMeals();
+    for (int i = 0; i < 5; ++i) {//i is less than meals size
+        std::cout<<"Show this meal:" << _meals[i].getMealName()<<_meals[i].showMealFats()<<std::endl;
     };
     std::cout<<"Show Plan ended"<<std::endl;
 }

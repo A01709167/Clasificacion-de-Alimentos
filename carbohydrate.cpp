@@ -46,7 +46,7 @@ bool Carbohydrate::isHealthy() {
 }
 
 string Carbohydrate::show()
-{   string message = "undefined carb";
+{   string message = getName();
     return message;
 }
 

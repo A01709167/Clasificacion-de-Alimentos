@@ -65,6 +65,10 @@ int main(){
     examplePlan.setSplit({30.0, 50.0, 20.0});
     std::cout << examplePlan.showMacros() << std::endl;
     examplePlan.setMeals();
+    examplePlan.showPlan();
+
+    Meal someMeal(20,30,50);
+
     
     return 0;
 };

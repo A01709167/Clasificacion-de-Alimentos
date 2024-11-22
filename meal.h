@@ -24,20 +24,21 @@ private:
     int mealFats;
 
     //I didn't declare this first as I did not know how to add an undefined ammount of each
-    std::vector <Protein> proteins;
-    std::vector <Fats> fats;
-    std::vector <Carbohydrate> carbohydrates;
+    std::vector<Carbohydrate> carbohydrates; 
+    std::vector<Protein> proteins; 
+    std::vector<Fats> fats;
+    
 
 public:
     // Constructor
     Meal();
     Meal(int _mealCarbs, int _mealProteins, int _mealFats);
     //Default constructor
-    //lo borré
 
     //GETTERS
     void setName(string _name);
     string getMealName();
+    void setMealMacros(int _mealCarbs, int _mealFats, int _mealProteins);
 
     void setTime(std::string _time);
     string getTime();

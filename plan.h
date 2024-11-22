@@ -17,9 +17,9 @@ private:
     double planCalories;
     int numberOfMeals;
 
-    int carbs;
-    int proteins;
-    int fats;
+    int carbs=10;
+    int proteins=11;
+    int fats=12;
         
     int baseCarbs;
     int baseProteins;
@@ -49,6 +49,10 @@ public:
     void setSplit(std::array<double,3> split);
     void setMacros(double planCalories); //done, returns int carb, proteins and fats for the whole plan
     void setNumberOfMeals(int _numberOfMeals);
+
+    void setCarbsPortions(int _carbs);
+    void setProteinPortions(int _proteins);
+    void setFatsPortions(int _fats);
 
     std::vector<Meal> setMeals();
 
