@@ -8,7 +8,7 @@ Meal::Meal(int _mealCarbs, int _mealProteins, int _mealFats){
     mealCarbs = _mealCarbs;
     mealProteins = _mealProteins;
     mealFats = _mealFats;
-    mealName = "no name";
+    mealName = "MyMeal";
     carbohydrates = std::vector<Carbohydrate>(3, Carbohydrate()); 
     proteins = std::vector<Protein>(4, Protein()); 
     fats = std::vector<Fats>(5, Fats());
@@ -26,7 +26,6 @@ string Meal:: getMealName(){
 }
 
 void Meal::setMealMacros(int _mealCarbs, int _mealFats, int _mealProteins){  
-    std::cout<<"\nSET MEAL MACROS STARTED"<<std::endl; 
     mealProteins = _mealProteins;  
     mealFats = _mealFats;
     mealCarbs = _mealCarbs;
@@ -34,7 +33,6 @@ void Meal::setMealMacros(int _mealCarbs, int _mealFats, int _mealProteins){
     proteins.resize(mealProteins);
     fats.resize(mealFats);
     string tamanoresizeado = to_string(fats.size());
-    std::cout<< tamanoresizeado<<std::endl;
 }
 
 void Meal::setTime(string _time)
@@ -90,10 +88,10 @@ string Meal::showMealPortions()
 
 string Meal::showMealProteins()
 {
-    string message="PROT 1";
+    string message="";
     int size = getProteinPortions();
     for (int i=1; i< size; i++){
-        message = message + proteins[i].getName()+ "Cals: " + to_string(proteins[i].getCalories());     
+        message = message +"\n"+ proteins[i].getName()+ "  |  Cals: " + to_string(proteins[i].getCalories());     
     };
     return message;
    
@@ -102,24 +100,26 @@ string Meal::showMealProteins()
 string Meal::showMealCarbohydrates()
 {
     int size =getCarbPortions();
-    string message="Carb 1";
+    string message="";
     for (int i=1; i< size; i++){
-        message = message + carbohydrates[i].getName()+ "Cals: " + to_string(carbohydrates[i].getCalories());     
+        message = message +"\n" +carbohydrates[i].getName()+ "  |  Cals: " + to_string(carbohydrates[i].getCalories());     
     };
     return message;
 }
 
 string Meal::showMealFats()
 {
-    std::string message = "Fats: "; 
-    std::vector<Fats> fats = getFats(); 
-    message += to_string(fats.size()); //se supone que está resizeado ?
+    int size =getFatsPortions();
+    string message="";
+    for (int i=1; i< size; i++){
+        message = message +"\n" +fats[i].getName()+ "  |  Cals: " + to_string(fats[i].getCalories());     
+    };
     return message;
 }
 
 string Meal::displayMeal(){ 
     mealName = getMealName();
-    string mealDisplay = "Foods of " + getMealName() +" meal display:" +"\n- Proteins:" +showMealProteins() + "\n- Carbohydrates: " + showMealCarbohydrates() + "\n- Fats: " + showMealFats();
+    string mealDisplay = "Foods of " + getMealName() +":" +"\n- Proteins:" +showMealProteins() + "\n\n- Carbohydrates: " + showMealCarbohydrates() + "\n\n- Fats: " + showMealFats();
     return mealDisplay;
 }
 

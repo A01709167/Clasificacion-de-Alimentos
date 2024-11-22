@@ -5,7 +5,7 @@ using namespace std;
 #include <iomanip> // Formatting
 #include <sstream> // For formatting
 
-Food::Food(): name("FOOD BASE"), calories(0), carbs(0), proteins(0), fats(0), portionSize(0), group("NONE") {}
+Food::Food(): name("Name"), calories(0), carbs(0), proteins(0), fats(0), portionSize(0), group("NONE") {}
 Food::Food(string _name, double _calories, double _carbs, double _proteins, double _fats){
     name = _name;
     calories = _calories;

@@ -43,6 +43,7 @@ public:
     int getProteins();
     int getFats();
     int getNumberOfMeals();
+    string getPlanName();
     std::array<double,3> getSplit();
 
     // Methods
@@ -58,7 +59,9 @@ public:
 
     std::vector<Meal> getMeals();
     string showMacros();
-    void showPlan();
+
+    string showPlan();
+    void showPlanMeals();
 
 };
 

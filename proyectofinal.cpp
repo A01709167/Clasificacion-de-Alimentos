@@ -58,16 +58,20 @@ int main(){
     */
 
     //meal works
+    Meal someMeal(20,30,50);
+    std::cout<<someMeal.displayMeal()<<std::endl;
 
     Plan examplePlan(5000, {30, 50, 20}, 5);
     
     examplePlan.setMacros(5000);
     examplePlan.setSplit({30.0, 50.0, 20.0});
     std::cout << examplePlan.showMacros() << std::endl;
-    examplePlan.setMeals();
+    examplePlan.setMeals(); 
+    std::cout<<"SHOW PLAN STARTEDVJKE"<<std::endl;
     examplePlan.showPlan();
 
-    Meal someMeal(20,30,50);
+    
+    
 
     
     return 0;
