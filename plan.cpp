@@ -90,11 +90,13 @@ std::array<double, 3> Plan::getSplit()
     return split;
 }
 
-void Plan::setMealsNames(vector<string> _mealsNames)
+void Plan::setMealsNames(int opcion, string name)
 {
-    int number = getNumberOfMeals();
-    std::vector<std::string> mealsNames(number);
-    mealsNames = _mealsNames;
+    vector <Meal> _meals = getMeals();
+    Meal _meal = _meals[opcion];
+    _meal.setName(name);
+    _meals[opcion] = _meal;
+    meals = _meals;
 }
 
 std::vector<Meal> Plan::setMeals()
@@ -120,7 +122,6 @@ std::vector<Meal> Plan::setMeals()
         int mealProteins = baseProteins + (i < extraProteins ? 1 : 0);
         int mealFats = baseFats + (i < extraFats ? 1 : 0);
         _meals[i].setMealMacros(mealCarbs, mealFats, mealProteins);
-        _meals[i].setName(mealsNames[i]);
     }
     meals = _meals;
     return meals;

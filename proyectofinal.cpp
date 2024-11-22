@@ -67,8 +67,8 @@ int main(){
     examplePlan.setSplit({30.0, 50.0, 20.0});
     std::cout << examplePlan.showMacros() << std::endl;
     examplePlan.setMeals(); 
+    
     std::cout<<examplePlan.showPlan()<<std::endl;
-    std::vector<Meal> exampleMeals =examplePlan.getMeals();    
-
+    
     return 0;
 };

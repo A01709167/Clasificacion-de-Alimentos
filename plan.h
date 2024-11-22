@@ -56,7 +56,7 @@ public:
     void setProteinPortions(int _proteins);
     void setFatsPortions(int _fats);
 
-    void setMealsNames(vector<string>);
+    void setMealsNames(int opcion, string name);
     std::vector<Meal> setMeals();
 
     std::vector<Meal> getMeals();
