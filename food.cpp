@@ -15,7 +15,19 @@ void Food::setPortionSize(double _portion){
     portionSize = _portion;
 }
 
-string Food::getName(){
+Food::Food(){}
+
+Food::Food(string _name, double _calories, double _carbs, double _proteins, double _fats)
+{
+    name = _name;
+    calories =_calories;
+    carbs=_carbs;
+    proteins = _proteins;
+    fats=_fats;
+}
+
+string Food::getName()
+{
     return name;
 };
 

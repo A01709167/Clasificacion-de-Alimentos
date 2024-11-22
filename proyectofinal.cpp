@@ -11,6 +11,7 @@
 using namespace std;
 
 Food createFood() {
+    std::cout<<"this works"<<std::endl;
     std::string name;
     double calories, carbs, proteins, fats;
 
@@ -36,16 +37,15 @@ Food createFood() {
     return _food;
 }
 
-Food* createMacroFood(){
-    Food _food = createFood();
+Carbohydrate createCarb(Food _food){
     string group = _food.getGroup();
     string name = _food.getName();
     double calories = _food.getCalories();
     double carbs = _food.getCarbs();
     double fats = _food.getFats();
     double proteins = _food.getProteins();
-    if (group == "Carb"){
-        double sugar, fiber;
+    double sugar, fiber;
+        std::cout<<"Initializing carb\n"<<std::endl;
         std::cout << "Enter fats: "; 
         std::cin >> fats; 
         std::cout << "Enter sugar: "; 
@@ -54,21 +54,47 @@ Food* createMacroFood(){
         std::cin >> fiber;
         Carbohydrate _carbohydrate( name,  calories, carbs, proteins, fats, sugar, fiber);
         return _carbohydrate;
-    }
-    else if (group =="Protein"){
+}
+Protein createProtein(Food _food){
+    string group = _food.getGroup();
+    string name = _food.getName();
+    double calories = _food.getCalories();
+    double carbs = _food.getCarbs();
+    double fats = _food.getFats();
+    double proteins = _food.getProteins();
+    double sugar, fiber;
         Protein _protein(name, calories, carbs, proteins, fats);
         return _protein;
-    }
-    else if (group =="Fat"){
+}
+Fats createFats(Food _food){
+    string group = _food.getGroup();
+    string name = _food.getName();
+    double calories = _food.getCalories();
+    double carbs = _food.getCarbs();
+    double fats = _food.getFats();
+    double proteins = _food.getProteins();
+    double sugar, fiber;
         double saturatedFat;
         std::cout << "Enter saturatedFat: "; 
         std::cin >> saturatedFat;
         Fats _fat( name,  calories, carbs, proteins, fats, saturatedFat);
         return _fat;
     };
-
+    
+int newFood(){
+     Food _food= createFood();
+    string group = _food.getGroup();
+    if (group == "Carb"){
+        createCarb(_food);
+    }
+    else if (group =="Protein"){
+        createProtein(_food);
+    }
+    else if (group =="Fat"){
+        createFats(_food);
+    };
+    return 0;
 }
-
 
 int main(){
     /*
@@ -139,6 +165,9 @@ int main(){
     examplePlan.showPlanMeals();
 */
 
-    createFood();
+
+
+   
+
     return 0;
 };
