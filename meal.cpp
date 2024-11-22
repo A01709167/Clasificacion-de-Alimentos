@@ -27,9 +27,9 @@ string Meal:: getMealName(){
 
 void Meal::setMealMacros(int _mealCarbs, int _mealFats, int _mealProteins){  
     std::cout<<"\nSET MEAL MACROS STARTED"<<std::endl; 
-    mealProteins = getProteinPortions();  
-    mealFats = getFatsPortions();
-    mealCarbs = getCarbPortions();
+    mealProteins = _mealProteins;  
+    mealFats = _mealFats;
+    mealCarbs = _mealCarbs;
     carbohydrates.resize(mealCarbs);
     proteins.resize(mealProteins);
     fats.resize(mealFats);
