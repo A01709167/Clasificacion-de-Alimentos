@@ -70,7 +70,8 @@ int main(){
     examplePlan.setMealsNames(0, "breakfast");
     
  
-    Carbohydrate oreo("oreo", 170, 25, 1, 7, 14, 0.5);
+    Carbohydrate oreo("oreo", 353.75, 25, 1, 7, 14, 0.5);
+    oreo.defPortion();
     examplePlan.insertMealCarb(2, 2, oreo);
     examplePlan.insertMealCarb(0, 2, oreo);
     examplePlan.insertMealCarb(1, 2, oreo);

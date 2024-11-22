@@ -25,6 +25,12 @@ void Fats::setSaturatedFat(double _saturatedFat){
     saturatedFat = _saturatedFat;
 }
 
+void Fats::setFatPortion(){
+    double cals = getCalories();
+    double _portion = 4500/cals;
+    portionSize=_portion;
+}
+
 //METHODS
 bool Fats::isSaturated()
 {

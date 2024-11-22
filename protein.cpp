@@ -19,6 +19,13 @@ void Protein::setEnough(bool _enough){
     _enough = enough;
 }
 
+void Protein::setProteinPortion()
+{
+    double cals = getCalories();
+    double _portion = 7700/cals;
+    portionSize=_portion;
+}
+
 string Protein::getBase()
 {
     return base;

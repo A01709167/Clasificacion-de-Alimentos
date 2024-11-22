@@ -25,9 +25,15 @@ void Carbohydrate::setFiber(double _fiber){
     fiber = _fiber;
 }
 
+
 // Setter
 void Carbohydrate::setType(string _type){
     type = _type;
+}
+void Carbohydrate::defPortion() {
+    double cals = getCalories();
+    double _portion = 7700/cals;
+    portionSize=_portion;
 };
 
 //Methods

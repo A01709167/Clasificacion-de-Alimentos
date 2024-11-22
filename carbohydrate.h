@@ -21,6 +21,7 @@ public:
     void setSugar(double sugar);
     void setFiber(double fiber);
     void setType(string _type);
+    void defPortion();
     double getSugar();
     double getFiber();
     string getType();

@@ -112,9 +112,12 @@ string Meal::showMealProteins()
     vector <Protein> proteinv = getProteins();
 
     for (int i=1; i< size; i++){
-        oss.str(""); oss << proteinv[i].getCalories(); 
-        std::string caloriesStr = oss.str(); 
-        message += proteinv[i].getName()+" | Cals: " + caloriesStr + "\n"; 
+        oss.str(""); // Clear the stream 
+        oss << std::fixed << std::setprecision(1) << proteinv[i].getCalories(); 
+        std::string caloriesStr = oss.str();
+        oss.str(""); // Clear the stream again 
+        oss << std::fixed << std::setprecision(1) << proteinv[i].getPortionSize(); 
+        std::string portionfStr = oss.str(); message += proteinv[i].getName() + " | Cals: " + caloriesStr + " | Portion: " + portionfStr + "\n"; 
         }
     return message;
    
@@ -128,9 +131,12 @@ string Meal::showMealCarbohydrates()
     vector <Carbohydrate> carbs = getCarbohydrates();
     string message="";
     for (int i=1; i< size; i++){
-        oss.str(""); oss << carbs[i].getCalories(); 
-        std::string caloriesStr = oss.str(); 
-        message += carbs[i].getName()+" | Cals: " + caloriesStr + "\n"; 
+        oss.str(""); // Clear the stream 
+        oss << std::fixed << std::setprecision(1) << carbs[i].getCalories(); 
+        std::string caloriesStr = oss.str();
+        oss.str(""); // Clear the stream again 
+        oss << std::fixed << std::setprecision(1) << carbs[i].getPortionSize(); 
+        std::string portionfStr = oss.str(); message += carbs[i].getName() + " | Cals: " + caloriesStr + " | Portion: " + portionfStr + "\n"; 
     };
     return message;
 }
@@ -143,9 +149,12 @@ string Meal::showMealFats()
     vector <Fats> fatsv = getFats();
     string message="";
     for (int i=1; i< size; i++){
-        oss.str(""); oss << fatsv[i].getCalories(); 
-        std::string caloriesStr = oss.str(); 
-        message += fatsv[i].getName()+" | Cals: " + caloriesStr + "\n"; 
+        oss.str(""); // Clear the stream 
+        oss << std::fixed << std::setprecision(1) << fatsv[i].getCalories(); 
+        std::string caloriesStr = oss.str();
+        oss.str(""); // Clear the stream again 
+        oss << std::fixed << std::setprecision(1) << fatsv[i].getPortionSize(); 
+        std::string portionfStr = oss.str(); message += fatsv[i].getName() + " | Cals: " + caloriesStr + " | Portion: " + portionfStr + "\n"; 
     };
     return message;
 }

@@ -30,6 +30,7 @@ public:
     //SETTERS
     void setType(string _type);
     void setSaturatedFat(double _saturatedFat);
+    void setFatPortion();
     //METHODS
     bool isSaturated();
     string show();

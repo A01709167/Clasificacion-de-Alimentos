@@ -32,6 +32,7 @@ public:
     void setType(string);
     void setLean(bool);
     void setEnough(bool);
+    void setProteinPortion();
 
     string getBase();
     string getType();
