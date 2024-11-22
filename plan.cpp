@@ -133,7 +133,7 @@ void Plan::showPlan(){ //no sale imprimir un vector de meals, recomiendo ir a me
     std::cout<<"\n\nSHOW PLAN started: "<<std::endl;
     int _numberOfMeals = getNumberOfMeals();
     for (int i = 0; i < 5; ++i) {//i is less than meals size
-        std::cout<<"Show this meal:" << _meals[i].getMealName()<<_meals[i].showMealFats()<<std::endl;
+        std::cout<<"Show this meal: " << _meals[i].getMealName()<<_meals[i].showMealFats()<<std::endl;
     };
     std::cout<<"Show Plan ended"<<std::endl;
 }

@@ -113,7 +113,7 @@ string Meal::showMealFats()
 {
     std::string message = "Fats: "; 
     std::vector<Fats> fats = getFats(); 
-    message += to_string(fats.size());
+    message += to_string(fats.size()); //se supone que está resizeado ?
     return message;
 }
 
