@@ -47,6 +47,10 @@ public:
     int getFatsPortions();
     int getProteinPortions();
 
+    void setCarbs(vector <Carbohydrate> _carbs);
+    void setProteins(vector<Protein> _proteins);
+    void setFats(vector <Fats> _fats);
+
     std::vector <Protein> getProteins();
     std::vector <Carbohydrate> getCarbohydrates();
     std::vector <Fats> getFats();

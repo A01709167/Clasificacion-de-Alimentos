@@ -57,6 +57,9 @@ public:
     void setFatsPortions(int _fats);
 
     void setMealsNames(int opcion, string name);
+    void insertMealCarb(int mealI, int carbI, Carbohydrate carb);
+    void insertMealProtein(int opcion, Protein);
+    void insertMealFat(int opcion, Fats);
     std::vector<Meal> setMeals();
 
     std::vector<Meal> getMeals();

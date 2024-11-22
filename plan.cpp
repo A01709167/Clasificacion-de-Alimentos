@@ -99,6 +99,21 @@ void Plan::setMealsNames(int opcion, string name)
     meals = _meals;
 }
 
+void Plan::insertMealCarb(int mealI, int carbI, Carbohydrate carb)
+{
+    vector<Meal> _meals = getMeals();
+    Meal _meal = _meals[mealI];
+    vector <Carbohydrate> _carbs = _meal.getCarbohydrates();
+    Carbohydrate _carb = _carbs[carbI];
+    _carb = carb;
+    _carbs[carbI]=_carb;
+    _meals[mealI]=_meal;
+    meals = _meals;
+    
+    
+
+}
+
 std::vector<Meal> Plan::setMeals()
 { // Distributes the macros found before into the number of meals
     int numberOfMeals = getNumberOfMeals();
