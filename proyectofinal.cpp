@@ -32,7 +32,7 @@ Food createFood() {
     Food _food(name, calories, carbs, proteins, fats);
     _food.defineGroup();
     string group = _food.getGroup();
-    std::cout<<"Your food belongs to the "<<group<<std::endl;
+    std::cout<<"Your food belongs to the "<<group<<" group.\n"<<std::endl;
     return _food;
 }
 
@@ -73,6 +73,7 @@ Fats createFats(Food _food){
     double proteins = _food.getProteins();
     double sugar, fiber;
     double saturatedFat;
+    std::cout<<"Initializing fat\n"<<std::endl;
     std::cout << "Enter saturatedFat: "; 
     std::cin >> saturatedFat;
     Fats _fat( name,  calories, carbs, proteins, fats, saturatedFat);
@@ -83,28 +84,32 @@ int addFood(Plan& mainPlan){
     Food _food= createFood();
     string group = _food.getGroup();
     int mealI, foodI;
+    
     if (group == "Carb"){
         createCarb(_food);
+        std::cout<<"Now INSERT your CARB into your plan (Display your plan to see your meals)\n"<<std::endl;
         std::cout << "Enter Meal index: "; 
         std::cin >> mealI; 
-        std::cout << "Enter food index: "; 
+        std::cout << "Enter Carb index: "; 
         std::cin >> foodI; 
         mainPlan.insertMealCarb(mealI, foodI);
         
     }
     else if (group =="Protein"){
         createProtein(_food);
+        std::cout<<"Now INSERT your PROTEIN into your plan (Display your plan to see your meals)\n"<<std::endl;
         std::cout << "Enter Meal index: "; 
         std::cin >> mealI; 
-        std::cout << "Enter food index: "; 
+        std::cout << "Enter Protein index: "; 
         std::cin >> foodI; 
         mainPlan.insertMealProteins(mealI, foodI);
     }
     else if (group =="Fat"){
         createFats(_food);
+        std::cout<<"Now INSERT your FAT into your plan (Display your plan to see your meals)\n"<<std::endl;
         std::cout << "Enter Meal index: "; 
         std::cin >> mealI; 
-        std::cout << "Enter food index: "; 
+        std::cout << "Enter Fat index: "; 
         std::cin >> foodI; 
         mainPlan.insertMealFat(mealI, foodI);
     };
@@ -162,16 +167,21 @@ std::cout << "3. New Food\n";
 std::cout << "4. Show Plan Macros\n"; 
 std::cout << "5. Set Meals Name\n"; 
 std::cout << "6. Change goal\n"; 
+std::cout << "7. Change name\n"; 
+std::cout << "8. Change weight\n"; 
+std::cout << "9. Change split\n";
+std::cout << "10. New Plan\n"; 
 std::cout << "0. Exit\n"; 
 std::cout << "Enter your choice: "; 
 }
 
 void setSplitInteractive(Plan& mainPlan) { 
     double carbs, proteins, fats; 
-    std::cout << "Enter the percentage of Carbohydrates: "; 
+    std::cout << "\n----------\nSET PERCENTAGE OF EACH MACRO [e.g 60, 30, 10]\nEnter the percentage of Carbohydrates: "; 
     std::cin >> carbs; std::cout << "Enter the percentage of Proteins: "; 
     std::cin >> proteins; std::cout << "Enter the percentage of Fats: "; 
-    std::cin >> fats; // Set the split array mainPlan.setSplit({carbs, proteins, fats}); 
+    std::cin >> fats; // Set the split array 
+    mainPlan.setSplit({carbs, proteins, fats}); 
     }
 
 void handleOption(int option, User& mainUser, Plan& mainPlan) {
@@ -183,7 +193,7 @@ void handleOption(int option, User& mainUser, Plan& mainPlan) {
             mainPlan.showPlanMeals();;
             break;
         case 3:
-        std::cout<<"case 3"<<std::endl;
+        std::cout<<"\nInsert a food into your plan"<<std::endl;
             addFood(mainPlan);
             break;
         case 4:
@@ -201,6 +211,39 @@ void handleOption(int option, User& mainUser, Plan& mainPlan) {
         case 6:
             mainUser.askGoal();
             break;
+        case 7: { 
+            std::string name; std::cout << "Enter new name: "; 
+            std::cin.ignore(); std::getline(std::cin, name); 
+            mainUser.setName(name); break; 
+        } 
+        case 8: { 
+            double weight; 
+            std::cout << "Enter new weight: "; 
+            std::cin >> weight; mainUser.setWeight(weight); 
+            break; } 
+        case 9: 
+        setSplitInteractive(mainPlan); 
+        break;
+        case 10: {
+            std::cout<<"-----------\n"; //User has only one plan, it could change to a vector with several plans but no.
+            int numberOfMeals; std::cout << "Enter the number of meals: "; 
+            std::cin >> numberOfMeals; 
+            mainUser.askGoal(); 
+            double carbs, proteins, fats;
+            std::cout << "Enter the percentage of Carbohydrates: "; 
+            std::cin >> carbs; 
+            std::cout << "Enter the percentage of Proteins: "; 
+            std::cin >> proteins; std::cout << "Enter the percentage of Fats: "; 
+            std::cin >> fats; // Set the split array mainPlan.setSplit({carbs, proteins, fats}); 
+            array <double, 3> split = {carbs, proteins, fats};
+            mainUser.setPlan(numberOfMeals);
+            std::cout<<"Plan set succesfully to "<<mainUser.getGoal()<<" with "<<mainUser.getCalories()<<" calories ."; 
+            Plan mainPlan = mainUser.getPlan();
+            mainPlan.setSplit(split);
+            mainPlan.setMacros(mainUser.getCalories());
+            mainPlan.setMeals();
+        }
+        break;
         case 0:
             std::cout << "Exiting...\n";
             break;

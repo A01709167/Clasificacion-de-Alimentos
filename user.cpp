@@ -47,8 +47,8 @@ Plan User::setPlan(int numberOfMeals){ //Falta definir the user plan
     std::array<double, 3> split = getSplit();
     
     Plan _userPlan(calories, split, numberOfMeals);
-    std::cout<<"Plan set succesfully, continue "<<std::endl;
     userPlan = _userPlan;
+    string message = "Plan set succesfully to "+goal+" with "+to_string(calories)+" calories .";
     return userPlan;
 };
 
@@ -166,8 +166,6 @@ double User::findMaintenance() {
         _calories = (weight*10) +(6.25*height)-(5*age)+5+500;
     };
     calories = std::round(_calories);
-    std::cout<<"You're calories are: "<<calories<<std::endl;
-    std::cout<<calories<<std::endl;
     return calories;
 }
 
@@ -185,7 +183,6 @@ double User::findBulkCals() {
         calories = (weight*10) +(6.25*height)-(5*age)+5+200;
     };
     _bulk = calories + calories*0.20; //between 15 and 20% surplus is recommended, may this value get variable in the future
-    std::cout<<"\nBULK calories FOUND succesfully:  "<<endl;
     bulk = std::round(_bulk);
     return bulk; // Placeholder return
 }
@@ -204,6 +201,5 @@ double User::findDeficitCals() {
     };
     _deficit = calories - calories*0.20;
     deficit = std::round(_deficit);
-    std::cout<<"\nDEFICIT calories FOUND succesfully:  "<<endl;
     return deficit; // La suma de las calorías normales más lo que quiere subir
 }
