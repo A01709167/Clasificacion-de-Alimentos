@@ -8,7 +8,56 @@
 #include "protein.cpp"
 #include "fats.cpp"
 
+
 using namespace std;
+
+void displayMenu() { std::cout << "\nMenu:\n"; 
+std::cout << "1. Set split\n"; 
+std::cout << "2. Set macros\n"; 
+std::cout << "3. Set meals\n"; 
+std::cout << "4. Show macros\n"; 
+std::cout << "5. Show plan\n"; 
+std::cout << "6. Show plan meals\n"; 
+std::cout << "0. Exit\n"; 
+std::cout << "Enter your choice: "; }
+
+void setSplitInteractive(Plan& mainPlan) { 
+    double carbs, proteins, fats; 
+    std::cout << "Enter the percentage of Carbohydrates: "; 
+    std::cin >> carbs; std::cout << "Enter the percentage of Proteins: "; 
+    std::cin >> proteins; std::cout << "Enter the percentage of Fats: "; 
+    std::cin >> fats; // Set the split array mainPlan.setSplit({carbs, proteins, fats}); 
+    }
+
+void handleOption(int option, User& mainUser, Plan& mainPlan) {
+    switch (option) {
+        case 1:
+            setSplitInteractive(mainPlan);
+            break;
+        case 2:
+            mainPlan.setMacros(mainUser.getCalories());
+            break;
+        case 3:
+            mainPlan.setMeals();
+            break;
+        case 4:
+            std::cout << mainPlan.showMacros() << std::endl;
+            break;
+        case 5:
+            std::cout << mainPlan.showPlan() << std::endl;
+            break;
+        case 6:
+            mainPlan.showPlanMeals();
+            break;
+        case 0:
+            std::cout << "Exiting...\n";
+            break;
+        default:
+            std::cout << "Invalid option. Please try again.\n";
+            break;
+    }
+}
+
 
 Food createFood() {
     std::cout<<"this works"<<std::endl;
@@ -207,15 +256,52 @@ int main(){
     examplePlan.insertMealCarb(1, 2, oreo);
     std::cout<<examplePlan.showPlan()<<std::endl;
     examplePlan.showPlanMeals();
-*/
+
     User mainUser = createUser();
-    mainUser.setPlan(5);
+    int numberOfMeals;
+    std::cout << "Enter the number of meals: "; 
+    std::cin >> numberOfMeals; 
+    mainUser.setPlan(numberOfMeals); //It asks for the number of meals
     Plan mainPlan = mainUser.getPlan();
-    mainPlan.setSplit({50.0,30.0,20.0});
+    double carbs, proteins, fats; 
+    std::cout << "Enter the percentage of Carbohydrates: "; 
+    std::cin >> carbs; 
+    std::cout << "Enter the percentage of Proteins: "; 
+    std::cin >> proteins; std::cout << "Enter the percentage of Fats: "; 
+    std::cin >> fats; // Set the split array mainPlan.setSplit({carbs, proteins, fats}); 
+    array <double, 3> split = {carbs, proteins, fats};
+    mainPlan.setSplit(split);
     mainPlan.setMacros(mainUser.getCalories());
     mainPlan.setMeals();
     std::cout<<mainPlan.showMacros()<<std::endl;
     std::cout<<mainPlan.showPlan()<<std::endl;
+    mainPlan.showPlanMeals();*/
+    User mainUser = createUser(); 
+    int numberOfMeals; std::cout << "Enter the number of meals: "; 
+    std::cin >> numberOfMeals; 
+    mainUser.setPlan(numberOfMeals); 
+    Plan mainPlan = mainUser.getPlan();
+    double carbs, proteins, fats;
+    std::cout << "Enter the percentage of Carbohydrates: "; 
+    std::cin >> carbs; 
+    std::cout << "Enter the percentage of Proteins: "; 
+    std::cin >> proteins; std::cout << "Enter the percentage of Fats: "; 
+    std::cin >> fats; // Set the split array mainPlan.setSplit({carbs, proteins, fats}); 
+    array <double, 3> split = {carbs, proteins, fats};
+    mainPlan.setSplit(split);
+    mainPlan.setMacros(mainUser.getCalories());
+    mainPlan.setMeals();
+
+//From now on, proceed from the menu, everything before this has to be done in this order.
+    
+    int option; 
+    do { 
+        displayMenu(); 
+        std::cin >> option; 
+        handleOption(option, mainUser, mainPlan); 
+    } 
+    while (option != 0); 
+    
     
     return 0;
 };

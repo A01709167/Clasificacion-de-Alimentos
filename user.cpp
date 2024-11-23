@@ -157,13 +157,13 @@ double User::findMaintenance() {
     double _calories;
     // Finds the average calories the user most eat. I'm implementing the Mifflin-St Jeor Formula
     if (genre=="Male"){
-        _calories = (weight*10) +(6.25*height)-(5*age)-161;
+        _calories = (weight*10) +(6.25*height)-(5*age)-161+500;
     }
     else if (genre=="Female"){
-        _calories = (weight*10) +(6.25*height)-(5*age)+5;
+        _calories = (weight*10) +(6.25*height)-(5*age)+5+500;
     };
     calories = std::round(_calories);
-    std::cout<<"calories found succesfully"<<std::endl;
+    std::cout<<"You're calories are: "<<calories<<std::endl;
     std::cout<<calories<<std::endl;
     return calories;
 }
