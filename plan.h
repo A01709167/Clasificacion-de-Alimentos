@@ -49,7 +49,7 @@ public:
 
     // Methods
     void setSplit(std::array<double,3> split);
-    void setMacros(double planCalories); //done, returns int carb, proteins and fats for the whole plan
+    string setMacros(double planCalories); //done, returns int carb, proteins and fats for the whole plan
     void setNumberOfMeals(int _numberOfMeals);
 
     void setCarbsPortions(int _carbs);

@@ -17,7 +17,7 @@ void Plan::setSplit( std::array<double,3> _split)
 {   split=_split;
 }
 
-void Plan::setMacros(double planCalories)
+string Plan::setMacros(double planCalories)
 { // this comes from the split (in fact, i could've called the split macros)
     std::array<double, 3> _split = getSplit();
     double total = planCalories; //aún no recibe las calorias del user
@@ -39,9 +39,9 @@ void Plan::setMacros(double planCalories)
 
     //These are the portions of each macro
     
-    std::cout<<"Macros CALORIES set succesfully to Carbs  "<<_fats<<" proteins: "<<_proteins<<" fats: "<<_carbs<<std::endl;
-    std::cout<<"Macros PORTIONS set to Carbs  "<<carbs<<" proteins: "<<proteins<<" fats: "<<fats<<std::endl;
-    // Changes the ammount of proteins
+    string message = "Macros CALORIES set succesfully to Carbs  "+to_string(_fats)+" proteins: "+to_string(_proteins)+" fats: "+to_string(_carbs);
+    message = message + "\nMacros PORTIONS set to Carbs  "+to_string(carbs)+" proteins: "+to_string(proteins)+" fats: "+to_string(fats);
+    return message;
 }
 
 void Plan::setNumberOfMeals(int _numberOfMeals)
@@ -107,7 +107,7 @@ Carbohydrate carb = _carbs[carbI] ; // Set the updated carbohydrates vector back
 _meal.setCarbs(_carbs); // Update the meal in the meals vector 
 _meals[mealI] = _meal; // Set the updated meals vector back to the Plan 
 meals = _meals; 
-std::cout << "insertMealCarb passed" << std::endl; 
+std::cout << "Display your meal to see your changes" << std::endl; 
 }
 void Plan::insertMealFat(int mealI, int fatI) {
     vector<Meal> _meals = getMeals();
@@ -118,7 +118,7 @@ void Plan::insertMealFat(int mealI, int fatI) {
     _meals[mealI] = _meal;
     meals = _meals;
 
-    std::cout << "insertMealFats passed" << std::endl;
+    std::cout << "Display your meal to see your changes" << std::endl;
 }
 void Plan::insertMealProteins(int mealI, int proteinI) {
     vector<Meal> _meals = getMeals();
@@ -129,7 +129,7 @@ void Plan::insertMealProteins(int mealI, int proteinI) {
     _meals[mealI] = _meal;
     meals = _meals;
 
-    std::cout << "insertMealProteins passed" << std::endl;
+    std::cout << "Display your meal to see your changes" << std::endl;
 }
 
 

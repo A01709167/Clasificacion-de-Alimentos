@@ -12,6 +12,9 @@ User::User(string _genre, int _age, double _weight, double _height){
     goal = "Maintain weight";    
     calories = 5000;
 }
+void User::setName(string _name){
+    name = _name;
+}
 
 void User::setAge(int _age){
     age = _age;

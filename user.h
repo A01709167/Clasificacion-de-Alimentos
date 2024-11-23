@@ -26,6 +26,7 @@ public:
     // Constructor
     User(string _genre, int _age, double _weight, double _height); //I built this constructor to verify FINDCALORIES method
     //SETTERS 
+    void setName(string _name);
     void setAge( int _age);
     void setWeight(double _weight);
     void setCalories(double _calories);

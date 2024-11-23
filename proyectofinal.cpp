@@ -118,6 +118,7 @@ User createUser() {
     int age;
     double weight, height;
     int opcion;
+    string name;
 
     std::cout << "Enter genre: Male [m] | Female [f]";
     std::getline(std::cin, _genre);
@@ -127,6 +128,8 @@ User createUser() {
     else if (_genre=="m"){
         genre="Male";
     };
+    std::cout << "Enter name: ";
+    std::cin >> name;
 
     std::cout << "Enter age: ";
     std::cin >> age;
@@ -138,7 +141,9 @@ User createUser() {
     std::cin >> height;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     User mainUser(genre, age, weight, height);
-    std::cout<<"user created"<<std::endl;
+
+    mainUser.setName(name);
+    std::cout<<"User "<<name<<" created"<<std::endl;
     return mainUser;
 }
 
