@@ -11,20 +11,24 @@
 using namespace std;
 Plan createAndSetPlan(User& mainUser) { 
     std::cout << "-----------\n"; // User has only one plan, it could change to a vector with several plans but no. 
-int numberOfMeals; std::cout << "Enter the number of meals: "; 
-std::cin >> numberOfMeals; mainUser.askGoal(); double carbs, proteins, fats; 
+int numberOfMeals; 
+std::cout << "Enter the number of meals: "; 
+std::cin >> numberOfMeals; 
+mainUser.askGoal(); double carbs, proteins, fats; 
 std::cout << "Enter the percentage of Carbohydrates: "; 
 std::cin >> carbs; 
 std::cout << "Enter the percentage of Proteins: "; 
 std::cin >> proteins; 
 std::cout << "Enter the percentage of Fats: "; 
-std::cin >> fats; std::array<double, 3> split = {carbs, proteins, fats}; 
+std::cin >> fats; 
+std::array<double, 3> split = {carbs, proteins, fats}; 
 mainUser.setPlan(numberOfMeals); 
 std::cout << "Plan set successfully to " << mainUser.getGoal() << " with " << mainUser.getCalories() << " calories.\n"; 
 Plan mainPlan = mainUser.getPlan(); 
-mainPlan.setSplit(split); 
+mainPlan.setSplit(split);
 mainPlan.setMacros(mainUser.getCalories()); 
 mainPlan.setMeals(); 
+std::cout<<"New plan with "<<numberOfMeals<<" meals and "<<mainUser.getCalories()<<" calories"<<std::endl;
 return mainPlan;
 }
 
@@ -217,7 +221,7 @@ void handleOption(int option, User& mainUser, Plan& mainPlan) {
             std::cout << mainPlan.showPlan() << std::endl;
             break;
         case 2:
-            mainPlan.showPlanMeals();;
+            mainPlan.showPlanMeals();
             break;
         case 3:
         std::cout<<"\nInsert a food into your plan"<<std::endl;
