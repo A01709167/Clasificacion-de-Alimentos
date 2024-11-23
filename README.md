@@ -25,6 +25,10 @@ Finally, the user will choose the ammount of meals they're willing to eat and di
     - Meals: The meal in one day, like breakfast. It is expressed into an array having just the 3 macros vectors with the Proteins, Fats and Carbohydrates of each.
       - Name: TO identify meal, breakfast, snack, etc
       - Time: The time the meal is intended too; ex. "morning".
+      - Proteins (chicken, meat, yogurt)
+      - Carbs (bread, rice, cookie)
+      - Fats (oil, mayonnaise, avocado)
+
       - Food: (e.g Apple), it has:
         - calories, carbs in grams, proteins in grams, fats in grams. According to this values they get divided into three main classess:
           - Carbs: a subclass of Food, e.g Bread
