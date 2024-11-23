@@ -7,60 +7,10 @@
 #include "carbohydrate.cpp"
 #include "protein.cpp"
 #include "fats.cpp"
-
-
+#include "plan.h"
 using namespace std;
 
-void displayMenu() { std::cout << "\nMenu:\n"; 
-std::cout << "1. Set split\n"; 
-std::cout << "2. Set macros\n"; 
-std::cout << "3. Set meals\n"; 
-std::cout << "4. Show macros\n"; 
-std::cout << "5. Show plan\n"; 
-std::cout << "6. Show plan meals\n"; 
-std::cout << "0. Exit\n"; 
-std::cout << "Enter your choice: "; }
-
-void setSplitInteractive(Plan& mainPlan) { 
-    double carbs, proteins, fats; 
-    std::cout << "Enter the percentage of Carbohydrates: "; 
-    std::cin >> carbs; std::cout << "Enter the percentage of Proteins: "; 
-    std::cin >> proteins; std::cout << "Enter the percentage of Fats: "; 
-    std::cin >> fats; // Set the split array mainPlan.setSplit({carbs, proteins, fats}); 
-    }
-
-void handleOption(int option, User& mainUser, Plan& mainPlan) {
-    switch (option) {
-        case 1:
-            setSplitInteractive(mainPlan);
-            break;
-        case 2:
-            mainPlan.setMacros(mainUser.getCalories());
-            break;
-        case 3:
-            mainPlan.setMeals();
-            break;
-        case 4:
-            std::cout << mainPlan.showMacros() << std::endl;
-            break;
-        case 5:
-            std::cout << mainPlan.showPlan() << std::endl;
-            break;
-        case 6:
-            mainPlan.showPlanMeals();
-            break;
-        case 0:
-            std::cout << "Exiting...\n";
-            break;
-        default:
-            std::cout << "Invalid option. Please try again.\n";
-            break;
-    }
-}
-
-
 Food createFood() {
-    std::cout<<"this works"<<std::endl;
     std::string name;
     double calories, carbs, proteins, fats;
 
@@ -94,6 +44,7 @@ Carbohydrate createCarb(Food _food){
     double fats = _food.getFats();
     double proteins = _food.getProteins();
     double sugar, fiber;
+    
         std::cout<<"Initializing carb\n"<<std::endl;
         std::cout << "Enter fats: "; 
         std::cin >> fats; 
@@ -123,32 +74,44 @@ Fats createFats(Food _food){
     double fats = _food.getFats();
     double proteins = _food.getProteins();
     double sugar, fiber;
-        double saturatedFat;
-        std::cout << "Enter saturatedFat: "; 
-        std::cin >> saturatedFat;
-        Fats _fat( name,  calories, carbs, proteins, fats, saturatedFat);
-        return _fat;
-    };
+    double saturatedFat;
+    std::cout << "Enter saturatedFat: "; 
+    std::cin >> saturatedFat;
+    Fats _fat( name,  calories, carbs, proteins, fats, saturatedFat);
+    return _fat;
+}
 
-int newFood(){
-     Food _food= createFood();
+int addFood(Plan& mainPlan){
+    Food _food= createFood();
     string group = _food.getGroup();
+    int mealI, foodI;
     if (group == "Carb"){
         createCarb(_food);
+        std::cout << "Enter Meal index: "; 
+        std::cin >> mealI; 
+        std::cout << "Enter food index: "; 
+        std::cin >> foodI; 
+        mainPlan.insertMealCarb(mealI, foodI);
+        
     }
     else if (group =="Protein"){
         createProtein(_food);
+        std::cout << "Enter Meal index: "; 
+        std::cin >> mealI; 
+        std::cout << "Enter food index: "; 
+        std::cin >> foodI; 
+        mainPlan.insertMealProteins(mealI, foodI);
     }
     else if (group =="Fat"){
         createFats(_food);
+        std::cout << "Enter Meal index: "; 
+        std::cin >> mealI; 
+        std::cout << "Enter food index: "; 
+        std::cin >> foodI; 
+        mainPlan.insertMealFat(mealI, foodI);
     };
     return 0;
 }
-
-#include <iostream>
-#include <limits>
-#include "user.h"
-
 User createUser() {
     std::string _genre;
     string genre;
@@ -188,6 +151,61 @@ Plan createPlan(User mainUser){
     return mainPlan;   
 }
 
+void displayMenu() { 
+std::cout << "\nMenu:\n"; 
+std::cout << "1. Show Plan portions\n"; 
+std::cout << "2. Show Plan Meals\n"; 
+std::cout << "3. New Food\n"; 
+std::cout << "4. Show Plan Macros\n"; 
+std::cout << "5. Set Meals Name\n"; 
+std::cout << "6. Change goal\n"; 
+std::cout << "0. Exit\n"; 
+std::cout << "Enter your choice: "; 
+}
+
+void setSplitInteractive(Plan& mainPlan) { 
+    double carbs, proteins, fats; 
+    std::cout << "Enter the percentage of Carbohydrates: "; 
+    std::cin >> carbs; std::cout << "Enter the percentage of Proteins: "; 
+    std::cin >> proteins; std::cout << "Enter the percentage of Fats: "; 
+    std::cin >> fats; // Set the split array mainPlan.setSplit({carbs, proteins, fats}); 
+    }
+
+void handleOption(int option, User& mainUser, Plan& mainPlan) {
+    switch (option) {
+        case 1:
+            std::cout << mainPlan.showPlan() << std::endl;
+            break;
+        case 2:
+            mainPlan.showPlanMeals();;
+            break;
+        case 3:
+        std::cout<<"case 3"<<std::endl;
+            addFood(mainPlan);
+            break;
+        case 4:
+            std::cout << mainPlan.showMacros() << std::endl;
+            break;
+        case 5:{
+            std::string mealName; int opcion; 
+            std::cout << "Enter meal index (e.g 1): "; 
+            std::cin >> opcion; 
+            std::cout << "Enter meal name (e.g Breakfast): "; 
+            std::cin >> mealName; 
+            mainPlan.setMealsNames(opcion, mealName);
+            break;
+        }
+        case 6:
+            mainUser.askGoal();
+            break;
+        case 0:
+            std::cout << "Exiting...\n";
+            break;
+        default:
+            std::cout << "Invalid option. Please try again.\n";
+            break;
+    }
+}
 
 int main(){
     /*
