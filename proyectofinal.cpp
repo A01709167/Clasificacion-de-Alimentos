@@ -87,32 +87,32 @@ int addFood(Plan& mainPlan){
     int mealI, foodI;
     
     if (group == "Carb"){
-        createCarb(_food);
+        Carbohydrate carb = createCarb(_food);
         std::cout<<"Now INSERT your CARB into your plan (Display your plan to see your meals)\n"<<std::endl;
         std::cout << "Enter Meal index: "; 
         std::cin >> mealI; 
         std::cout << "Enter Carb index: "; 
         std::cin >> foodI; 
-        mainPlan.insertMealCarb(mealI, foodI);
+        mainPlan.insertMealCarb(mealI, foodI, carb);
         
     }
     else if (group =="Protein"){
-        createProtein(_food);
+        Protein protein = createProtein(_food);
         std::cout<<"Now INSERT your PROTEIN into your plan (Display your plan to see your meals)\n"<<std::endl;
         std::cout << "Enter Meal index: "; 
         std::cin >> mealI; 
         std::cout << "Enter Protein index: "; 
         std::cin >> foodI; 
-        mainPlan.insertMealProteins(mealI, foodI);
+        mainPlan.insertMealProteins(mealI, foodI, protein);
     }
     else if (group =="Fat"){
-        createFats(_food);
+        Fats fat = createFats(_food);
         std::cout<<"Now INSERT your FAT into your plan (Display your plan to see your meals)\n"<<std::endl;
         std::cout << "Enter Meal index: "; 
         std::cin >> mealI; 
         std::cout << "Enter Fat index: "; 
         std::cin >> foodI; 
-        mainPlan.insertMealFat(mealI, foodI);
+        mainPlan.insertMealFat(mealI, foodI, fat);
     };
     return 0;
 }
@@ -124,7 +124,7 @@ User createUser() {
     int opcion;
     string name;
 
-    std::cout << "Enter genre: Male [m] | Female [f]";
+    std::cout << "Enter genre: Male [m] | Female [f]  >>";
     std::getline(std::cin, _genre);
     if(_genre=="f"){
         genre = "Female";
@@ -161,7 +161,7 @@ Plan createPlan(User mainUser){
 }
 
 void displayMenu() { 
-std::cout << "\nMenu:\n"; 
+std::cout << "\n____________________\nMenu:\n"; 
 std::cout << "1. Show Plan portions\n"; 
 std::cout << "2. Show Plan Meals\n"; 
 std::cout << "3. New Food\n"; 
@@ -207,6 +207,7 @@ void handleOption(int option, User& mainUser, Plan& mainPlan) {
             std::cout << "Enter meal name (e.g Breakfast): "; 
             std::cin >> mealName; 
             mainPlan.setMealsNames(opcion, mealName);
+            std::cout << "Display plan to see changes\n\n";
             break;
         }
         case 6:

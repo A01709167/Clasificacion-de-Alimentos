@@ -99,20 +99,22 @@ void Plan::setMealsNames(int opcion, string name)
     meals = _meals;
 }
 
-void Plan::insertMealCarb(int mealI, int carbI) { // Get the vector of meals 
+void Plan::insertMealCarb(int mealI, int carbI, Carbohydrate _carb) { // Get the vector of meals 
 vector<Meal> _meals = getMeals(); // Get the specific meal 
 Meal _meal = _meals[mealI]; // Get the carbohydrates vector from the meal 
 vector<Carbohydrate> _carbs = _meal.getCarbohydrates(); // Update the specific carbohydrate 
-Carbohydrate carb = _carbs[carbI] ; // Set the updated carbohydrates vector back to the meal 
+_carbs[carbI] = _carb;
+Carbohydrate carb = _carb ; // Set the updated carbohydrates vector back to the meal 
 _meal.setCarbs(_carbs); // Update the meal in the meals vector 
 _meals[mealI] = _meal; // Set the updated meals vector back to the Plan 
 meals = _meals; 
 std::cout << "Display your meal to see your changes" << std::endl; 
 }
-void Plan::insertMealFat(int mealI, int fatI) {
+void Plan::insertMealFat(int mealI, int fatI, Fats _fat) {
     vector<Meal> _meals = getMeals();
     Meal _meal = _meals[mealI];
     vector<Fats> _fats = _meal.getFats();
+    _fats[fatI] = _fat;
     Fats fat =_fats[fatI];
     _meal.setFats(_fats);
     _meals[mealI] = _meal;
@@ -120,7 +122,7 @@ void Plan::insertMealFat(int mealI, int fatI) {
 
     std::cout << "Display your meal to see your changes" << std::endl;
 }
-void Plan::insertMealProteins(int mealI, int proteinI) {
+void Plan::insertMealProteins(int mealI, int proteinI, Protein protein) {
     vector<Meal> _meals = getMeals();
     Meal _meal = _meals[mealI];
     vector<Protein> _proteins = _meal.getProteins();
