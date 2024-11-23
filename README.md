@@ -39,7 +39,8 @@ Finally, the user will choose the ammount of meals they're willing to eat and di
       - Proteins: The number of portions of proteins
       -   - Base: Proteins can be animal or plant based
           - isEnough(): counts if the percentage in grams of protein is enough in comparison with the other attributes.
-![Uploading UML DiagramaF.drawio.png…]()
 
 
 
+
+![UML DiagramaF drawio](https://github.com/user-attachments/assets/7c086edb-6d4b-4f58-bf97-4ea7b4f44d04)
