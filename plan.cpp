@@ -169,7 +169,7 @@ string Plan::showMacros()
 {   string carbs = to_string(getCarbs());
     string proteins = to_string(getProteins());
     string fats = to_string(getFats());
-    string message = "-----------------\nYour PLan Macros: \n- Carbs: "+carbs + "  - Proteins " + proteins +"  -Fats: "+ fats+"-----------------\n";
+    string message = "-----------------\nYour PLan Macros: \n- Carbs: "+carbs + "  - Proteins " + proteins +"  -Fats: "+ fats+"\n-----------------\n";
     return message;
 }
 
