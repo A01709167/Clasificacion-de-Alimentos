@@ -166,6 +166,7 @@ double User::findMaintenance() {
         _calories = (weight*10) +(6.25*height)-(5*age)+5+500;
     };
     calories = std::round(_calories);
+    setCalories(calories);
     return calories;
 }
 
@@ -184,6 +185,7 @@ double User::findBulkCals() {
     };
     _bulk = calories + calories*0.20; //between 15 and 20% surplus is recommended, may this value get variable in the future
     bulk = std::round(_bulk);
+    setCalories(bulk);
     return bulk; // Placeholder return
 }
 
@@ -201,5 +203,6 @@ double User::findDeficitCals() {
     };
     _deficit = calories - calories*0.20;
     deficit = std::round(_deficit);
+    setCalories(deficit);
     return deficit; // La suma de las calorías normales más lo que quiere subir
 }

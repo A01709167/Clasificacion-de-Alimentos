@@ -15,6 +15,7 @@ Food createFood() {
     double calories, carbs, proteins, fats;
 
     std::cout << "Enter food name: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, name);
 
     std::cout << "Enter calories [g]: ";
