@@ -17,16 +17,16 @@ Food createFood() {
     std::cout << "Enter food name: ";
     std::getline(std::cin, name);
 
-    std::cout << "Enter calories: ";
+    std::cout << "Enter calories [g]: ";
     std::cin >> calories;
 
-    std::cout << "Enter carbs: ";
+    std::cout << "Enter carbs: [g]";
     std::cin >> carbs;
 
-    std::cout << "Enter proteins: ";
+    std::cout << "Enter proteins: [g]";
     std::cin >> proteins;
 
-    std::cout << "Enter fats: ";
+    std::cout << "Enter fats: [g]";
     std::cin >> fats;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     Food _food(name, calories, carbs, proteins, fats);
@@ -46,8 +46,6 @@ Carbohydrate createCarb(Food _food){
     double sugar, fiber;
     
         std::cout<<"Initializing carb\n"<<std::endl;
-        std::cout << "Enter fats: "; 
-        std::cin >> fats; 
         std::cout << "Enter sugar: "; 
         std::cin >> sugar; 
         std::cout << "Enter fiber: "; 
