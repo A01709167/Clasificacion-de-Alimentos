@@ -19,7 +19,7 @@ private:
     array<double, 3> split; // Percentage split for carbs, proteins, fats (in that order)
     double increment;
     int numberOfMeals;
-    Plan userPlan = setPlan(numberOfMeals);
+    Plan userPlan;
     
 
 public:

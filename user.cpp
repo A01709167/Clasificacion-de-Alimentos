@@ -8,7 +8,9 @@ User::User(string _genre, int _age, double _weight, double _height){
     genre = _genre;
     age = _age;
     weight = _weight;
-    height = _height;    
+    height = _height;
+    goal = "Maintain weight";    
+    calories = 5000;
 }
 
 void User::setAge(int _age){
@@ -41,8 +43,9 @@ Plan User::setPlan(int numberOfMeals){ //Falta definir the user plan
     double calories = getCalories();
     std::array<double, 3> split = getSplit();
     
-    Plan userPlan(calories, split, numberOfMeals);
-    std::cout<<"Plan set succesfully, continue with methods"<<std::endl;
+    Plan _userPlan(calories, split, numberOfMeals);
+    std::cout<<"Plan set succesfully, continue "<<std::endl;
+    userPlan = _userPlan;
     return userPlan;
 };
 
@@ -53,6 +56,7 @@ void User::askGoal(){
     string goals [3]={"Maintain weight", "Loose weight", "Gain Weight"};
     string extremes [3]={"Moderate", "High", "Extreme"};
     double increments [3]={10.0, 15.0, 25.0};
+    std::cout<<"Set your goal, insert a number e.g 1"<<std::endl;
     for (int i = 0; i < 3; ++i) {
         std::cout<<(i+1)<<". "<< goals[i]<<endl;
     }
@@ -109,7 +113,7 @@ double User::getCalories()
     };
     setCalories(_calories);
     calories = _calories;
-    std::cout<<"Calories set according to goal  "<<goal<<" : "<<calories<<std::endl;//I may erase the checkpoint messages later
+    //std::cout<<"Calories set according to goal  "<<goal<<" : "<<calories<<std::endl;//I may erase the checkpoint messages later
     return calories;
 }
 
@@ -146,11 +150,11 @@ Plan User::getPlan(){
 
 
 double User::findMaintenance() {
-    string genre = "Female"; //getGenre();
-    double weight =70.0;//getWeight();
-    double height =180.0;//getHeight();
-    int age = 30;//getAge();
-    double _calories= 0;
+    string genre = "Female";
+    double weight =getWeight();
+    double height =getHeight();//getHeight();
+    int age = getAge();
+    double _calories;
     // Finds the average calories the user most eat. I'm implementing the Mifflin-St Jeor Formula
     if (genre=="Male"){
         _calories = (weight*10) +(6.25*height)-(5*age)-161;

@@ -126,18 +126,17 @@ User createUser() {
     std::cin >> height;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     User mainUser(genre, age, weight, height);
+    std::cout<<"user created"<<std::endl;
     return mainUser;
 }
 
 Plan createPlan(User mainUser){
-    double planCalories = mainUser.getCalories();
     mainUser.askGoal();
     int numberOfMeals;
-    std::array<double, 3> _split=mainUser.getSplit();
     std::cout << "Enter number of meals (e.g 5): ";
     std::cin >> numberOfMeals;
-    Plan mainPlan(planCalories, _split, numberOfMeals);
-    return mainPlan;
+    Plan mainPlan = mainUser.setPlan(numberOfMeals);
+    return mainPlan;   
 }
 
 
@@ -209,10 +208,14 @@ int main(){
     std::cout<<examplePlan.showPlan()<<std::endl;
     examplePlan.showPlanMeals();
 */
-
-
-
-   
-
+    User mainUser = createUser();
+    mainUser.setPlan(5);
+    Plan mainPlan = mainUser.getPlan();
+    mainPlan.setSplit({50.0,30.0,20.0});
+    mainPlan.setMacros(mainUser.getCalories());
+    mainPlan.setMeals();
+    std::cout<<mainPlan.showMacros()<<std::endl;
+    std::cout<<mainPlan.showPlan()<<std::endl;
+    
     return 0;
 };
