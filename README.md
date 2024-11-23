@@ -1,4 +1,4 @@
-# Proyecto- Nutritional plan
+# Final Project- Nutritional plan
 My proyects goal is to create a nutritional plan to achieve an adequate alimentation and reach personal goals. The program will divide different foods into food groups relying on the science of macronutrients: carbohydrates, proteins and fats; each of them having an specific ammount of calories. According to the weight and size of the user, the program will calculate the appropriate calories to mantain, loose or gain weight. Then the user will set the split of macronutrients they wish, usually being carbohydrates 50%, proteins 30% and fats 20% to calculate the number of portions they may eat on a day.
 Finally, the user will choose the ammount of meals they're willing to eat and distribute the portions onto these meals. To increase user experience, the user will be able to introduce their favorite foods and their nutritional value to not only get the appropriate portion size in grams, but also see if it's implementation is healthy or not.
 
